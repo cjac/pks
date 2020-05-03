@@ -1,0 +1,11 @@
+.cvsignore
+Makefile
+config.cache
+config.log
+config.status
+mkpksdconf
+pgpsplit
+pksclient
+pksd
+pksd.conf
+pksdctl

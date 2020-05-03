@@ -1,0 +1,161 @@
+#!/bin/sh
+#
+# chkconfig: 345 90 30
+# description: OpenPGP Public Key Server
+# processname: /usr/sbin/pksd
+# pidfile: /var/spool/postfix/pid/master.pid
+# config: /etc/pksd.conf
+
+#configuration options
+PKSD=/usr/sbin/pksd
+PKSQUEUE=/usr/bin/pks-queue-run.sh
+CONFIG=/etc/pksd.conf
+DELAY=3
+DB=/var/lib/pks
+PKSCLIENT=/usr/bin/pksclient
+ 
+# Source function library.
+. /etc/rc.d/init.d/functions
+
+# Source networking configuration and check that networking is up.
+if [ -f /etc/sysconfig/network ] ; then
+	. /etc/sysconfig/network
+	[ ${NETWORKING} = "no" ] && exit 0
+fi
+
+[ -x $PKSD ] || exit 0
+[ -x $PKSQUEUE ] || exit 0
+
+[ -e $CONFIG ] || exit 0
+
+RETVAL=0
+
+start () {
+
+    [ -f /var/lock/subsys/pksd ] && exit 1
+    [ -f /var/lock/subsys/pks-queue-run.sh ] && exit 1
+
+    echo -n "Repairing pks database:"
+
+    /bin/su - pks -c "$PKSCLIENT $DB/db recover >> $DB/recovery.log 2>&1" 1>/dev/null 2>&1
+
+    if [ $? = 0 ]; then
+	echo_success
+    else
+	echo_failure
+    fi
+
+    echo
+
+    echo -n "Starting pks daemon: "
+
+    # start daemon
+    umask 000
+    daemon  --user pks $PKSD $CONFIG &
+
+    RETVAL=$?
+
+    if [ $RETVAL = 0 ]; then
+    	touch /var/lock/subsys/pksd
+    	/bin/chmod 777 $DB/pksd_socket
+	echo_success
+    else
+	echo_failure
+    	echo
+    	return $RETVAL
+    fi
+
+    echo
+
+    echo -n "Starting pks queue processing daemon: "
+
+    # start daemon
+    umask 000
+    daemon  --user pks $PKSQUEUE $CONFIG $DELAY &
+
+    RETVAL=$?
+
+    if [ $RETVAL = 0 ]; then
+	touch /var/lock/subsys/pks-queue-run.sh
+	echo_success
+    else
+	echo_failure
+    fi
+
+    echo
+    return $RETVAL
+}
+
+stop () {
+    # stop daemon
+    echo -n "Stopping pks daemon: "
+    killproc $PKSD
+
+    RETVAL=$?
+    if [ $RETVAL = 0 ]; then
+	rm -f /var/lock/subsys/pksd
+    else
+	echo_failure
+    fi
+
+    echo
+
+    #stop daemon
+    echo -n "Stopping pks queue processing daemon: "
+    killall `basename $PKSQUEUE 2>/dev/null` 2>/dev/null
+
+    RETVAL2=$?
+    if [ $RETVAL2 = 0 ]; then
+	rm -f /var/lock/subsys/pks-queue-run.sh
+	echo_success
+    else
+	echo_failure
+    fi
+
+    echo
+    return $RETVAL
+}
+
+restart () {
+    stop
+    start
+    RETVAL=$?
+    return $RETVAL
+}
+
+# See how we were called.
+case "$1" in
+    start)
+	start
+	;;
+    stop)
+	stop
+	;;
+    status)
+	status $PKSD
+	RETVAL=$?
+	;;
+    restart)
+	restart
+	;;
+    condrestart)
+	# only restart if it is already running
+	[ -f /var/lock/subsys/pksd ] && restart || :
+	;;
+    reload)
+	echo -n "Reloading pksd: "
+	killproc /usr/sbin/pksd -HUP
+	RETVAL=$?
+	if [ $RETVAL = 0 ]; then
+	    echo_success
+	else
+	    echo_failure
+	fi
+	echo
+	;;
+    *)
+        echo "Usage: /etc/init.d/pks {start|stop|restart|condrestart|reload|status}"
+        RETVAL=1
+esac
+
+exit $RETVAL

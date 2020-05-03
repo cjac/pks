@@ -1,0 +1,161 @@
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+[
+  Czech:     Pro ziskani ceske verze tohoto textu poslete prosim e-mail se
+             "Subject" radkou "HELP CZ" na adresu
+             pgp-public-keys@keys.cz.pgp.net, nebo pristupte na URL
+             http://www.pgp.net/pgpnet/email-help-cz.html
+  Danish:    For at faa en dansk version af denne text skal du sende en
+             e-mail med en subject-tekst: "HELP DK" til
+             pgp-public-keys@keys.dk.pgp.net eller slaa op paa URL
+             http://www.pgp.net/pgpnet/email-help-dk.html
+  German:    Für eine deutschsprachige Fassung dieses Textes senden Sie
+             eine Mail mit dem Subject "HELP DE" an die folgende Adresse
+             pgp-public-keys@keys.de.pgp.net oder URL:
+             http://www.pgp.net/pgp/email-help-de.html
+  English:   For an English version of this message, send an e-mail with a
+             subject line of "HELP" to pgp-public-keys@keys.pgp.net, or
+             access the URL http://www.pgp.net/pgpnet/email-help-en.html
+  Spanish:   Para obtener una versión en castellano de este texto, envíe
+             un mail a pgp-public-keys@keys.nl.pgp.net con el "Subject"
+             HELP ES
+  Finnish:   Saadaksesi taman tekstin suomeksi, laheta osoitteeseen
+             pgp-public-keys@keys.nl.pgp.net tyhja viesti, jonka
+             Subject-kentta on "HELP FI".
+  French:    Pour une version française de çe texte, envoyez un
+             message au sujet de "HELP FR" à pgp-public-keys@keys.ch.pgp.net
+  Croatian:  Za hrvatsku verziju ovoga teksta posaljite poruku koja ce u
+             Subject imati "HELP HR" na adresu pgp-public-keys@keys.nl.pgp.net
+  Japanese:  Nihongo no setumei ga hosii baai wa Subject: ni "HELP JA"
+             to kaite, pgp-public-keys@keys.pgp.net ni e-mail.
+  Korean:    ¾Æ·¡ÀÇ ³»¿ëÀ» ÇÑ±Û·Î º¸½Ã·Á¸é Á¦¸ñ(Subject)ÀÌ "HELP KR" ÀÎ
+             ÀüÀÚ¿ìÆíÀ» pgp-public-keys@keys.kr.pgp.net À¸·Î º¸³»ÁÖ½Ê½Ã¿À.
+  Polish:    Zeby uzyskac polska wersje tej strony, wyslij list z linia
+             "HELP PL" w polu Subject na adres
+             pgp-public-keys@keys.pl.pgp.net lub zajrzyj pod URL
+             http://www.pgp.net/pgpnet/email-help-pl.html
+  Portuguese:Para obter uma versão em português deste texto, deve enviar um
+             mail para pgp-public-keys@keys.pt.pgp.net com o "Subject"
+             HELP PT
+  Norwegian: For aa faa dette dokumentet paa norsk, send "HELP NO" til
+             pgp-public-keys@keys.nl.pgp.net
+  Swedish:   For a Swedish version of this message, send an e-mail with a
+             subject line of "HELP SE" to pgp-public-keys@keys.se.pgp.net, or
+	     access the URL http://www.pgp.net/pgpnet/email-help-se.html
+  Chinese:   ¹ï¨ú±o¦¹¤@¤¤¤åª© PGP ¦øªA¾¹´£¨Ñ½u¤W»²§U»¡©ú, ½Ð E-mail µ¹
+	     pgp-public-keys@keys.tw.pgp.net, ©ó Subject: µù©ú "HELP TW" §Y¥i.
+]
+
+OpenPGP nyckelservrar
+---------------------
+
+Detta är en av flera datorpost-nyckelservrar som används för att
+utväxla de publika OpenPGP-nycklar som används för datorpost över INTERNET 
+och UUCP.  De som har tillgång till WWW vill kanske hellre nyttja
+det WWW-gränssnitt som finns tillgängligt via 
+http://www.pgp.net/pgpnet/www-key.html. 
+
+För administratörer och andra som har behov av att hämta hela nyckelringen
+kan det vara vara bättre att använda FTP från
+
+ftp://ftp.pgp.net/pub/pgp/
+
+Dessa OpenPGP-nyckelservrar är uppsatta för utväxling av nycklar
+mellan OpenPGP-brukare. De kan INTE garantera att en speciell nyckel 
+är giltig. Detta måste du kontrollera själv m.h.a nyckelsignaturerna.
+ 
+Varje nyckelserver hanterar frågor via datorpost. Dessa frågor kan innehålla
+olika kommandon. De olika kommandona skriver du i Subject-fältet.
+Lägg märke till att kommandona skrivs i subject-fältet och inte i själva
+'brödtexten'.
+
+        To: pgp-public-keys@keys.pgp.net.
+        From: sven.svensson@inst.univ.se
+        Subject: help
+
+Servrarna är synkroniserade med varandra. D.v.s. det räcker att sända
+din nyckel till EN av dessa.
+
+Exempel: Om du önskar lägga till din publika nyckel till nyckelservern eller 
+uppdatera en som redan ligger där, sänd följande brev till en av servrarna:
+
+        To: pgp-public-keys@keys.pgp.net
+        From: sven.svensson@inst.univ.se
+        Subject: add
+
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: 2.6
+
+        <blah blah blah>
+        -----END PGP PUBLIC KEY BLOCK-----
+
+Kompromitterade nycklar: 
+
+Tillverka ett "Key Revocation Certificate" (läs i PGP-manualen
+om hur du gör detta), Och send detta till nyckelservern m.h.a.
+ADD-kommandot.
+
+Möjliga kommandon till servern är:
+
+Kommando      'Brodtexten' innehåller
+----------------------------------------------------------------------
+ADD           Din publika PGP-nyckel (se exemplet ovan) 
+INDEX         Listar alla nycklar i nyckelringen (-kv) 
+VERBOSE INDEX Listar alla nycklar i nyckelringen med signatur (-kvv) 
+GET           Hämta hela nyckelringen (splittat) Använd FTP istället!
+GET userid    Hämta specifik nyckel     
+MGET regexp   RHämtar alla nycklar som matchar /regexp/    
+              regexp måste bestå av minst två tecken.
+LAST days     Hämta de nycklar som inkommit sista 'days' dagarna.
+HELP          Denna sida
+----------------------------------------------------------------------
+
+Exempel på MGET kommandon:
+
+      MGET michael          Hämtar alla nycklarna som innehåller "michael" 
+      MGET iastate          Hämtar alla nycklarna som innehåller "iastate"
+      MGET F605A5|3A738B    Hämtar dessa två nyckelID'n
+
+Noen ord om "regexps": Disse er ikke det samme som jokertegn i UNIX og
+MS-DOS.  "*" matchar inte 'allt' utan '0 eller flera' gånger föregående 
+tecken. Exempel:
+
+        a.* hittar allt som börjar med 'a'
+            ('.' matchar alla tecken) 
+        ab*c hittar ac, abc, abbc, etc.
+
+
+Försök att inte använda MGET utan GET.
+
+Att observera om GET-kommandot: Om du har möjlighet, använd FTP för att hämta
+nyckelringen från exempelvis ftp://ftp.pgp.net/pub/pgp/keys, stället för GET. Detta
+eftersom nyckelfilen delas upp i mer än 50 filer om 52kB var, något som tar
+mycket tid (och inte är så roligt att ta emot).
+ 
+Användarna skall normalt nyttja datorpostadressen
+
+pgp-public-keys@keys.pgp.net
+
+eller en av de nationella servrarna:
+
+	pgp-public-keys@keys.at.pgp.net
+	pgp-public-keys@keys.au.pgp.net
+	pgp-public-keys@keys.cz.pgp.net
+	pgp-public-keys@keys.de.pgp.net
+	pgp-public-keys@keys.es.pgp.net
+	pgp-public-keys@keys.fi.pgp.net
+	pgp-public-keys@keys.hr.pgp.net
+	pgp-public-keys@keys.hu.pgp.net
+	pgp-public-keys@keys.kr.pgp.net
+	pgp-public-keys@keys.nl.pgp.net
+	pgp-public-keys@keys.no.pgp.net
+	pgp-public-keys@keys.pl.pgp.net
+	pgp-public-keys@keys.se.pgp.net
+	pgp-public-keys@keys.tw.pgp.net
+	pgp-public-keys@keys.uk.pgp.net
+	pgp-public-keys@keys.us.pgp.net
+
+för datorpost-gränssnittet, "ftp://ftp.pgp.net/pub/pgp/" för FTP,
+och "http://www.pgp.net/pgpnet/" för WWW.

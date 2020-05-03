@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>OpenPGP Public Key Server Commands</title>
+  </head>
+  <body>
+  <h1>Willkommen auf dem Schl&#252;sselserver pksd</h1>
+  <h2>
+    <a href="#extract">Schl&#252;ssel vom Schl&#252;sselserver holen</a>
+  </h2>
+  <h2>
+    <a href="#submit">Schl&#252;ssel an den Schl&#252;sselserver &#252;bertragen</a>
+  </h2>
+  <hr />
+  <h2>
+    <a id="extract" name="extract">Schl&#252;ssel vom Schl&#252;sselserver holen</a>
+  </h2>
+  <p>So importieren Sie einen Schl&#252;ssel:</p>
+  <ol>
+    <li>
+      <p>W&#228;hlen Sie entweder &quot;Index&quot; oder &quot;Erweiterter Index&quot;.Der &quot;Erweiterte  Index&quot;&#39; zeigt zus&#228;tzlich alle Signaturen des Schl&#252;ssels.</p>
+    </li>
+    <li>
+      <p>Im Feld Suchbegriff geben Sie bitte das Suchkriterium ein (z.B. die E-Mail Adresse oder die ID -sofern bekannt.</p>
+    </li>
+    <li>
+      <p>Dr&#252;cken Sie dann die Schaltfl&#228;che &quot;Suche starten&quot;.</p>
+    </li>
+    <li>
+      <p>Der Schl&#252;sselserver gibt dann die gefunden Treffer aus.
+      <br />
+       Wenn Sie nach der hexadezimalen KeyID suchen wollen, geben Sie bitte als Prefix 0x an.</p>
+    </li>
+    <li>
+      <p>Das Suchergebnis der Anfrage enth&#228;lt &quot;Hyperlinks&quot; f&#252;r jede Schl&#252;sselID und einen in spitzen Klammern Identifizierung (z.B. &lt;
+      <a href="mailto:stephan.reichenbach@web.de">stephan.reichenbach@web.de</a>
+      &gt;).
+      <br />
+       Wenn Sie den Hyplink ausw&#228;hlen wird Ihnen der &#246;ffentliche Schl&#252;ssel angezeigt. Per &quot;Cut and Paste&quot; kann dieser dann in ihren
+      <br />
+       Schl&#252;sselbund eingef&#252;gt werden.</p>
+    </li>
+  </ol>
+  <hr />
+  <form action="/pks/lookup" method="get">
+    <p>Index: 
+    <input type="radio" name="op" value="index" checked="checked" />
+     Erweiterter Index: 
+    <input type="radio" name="op" value="vindex" />
+    </p>
+    <p>Suchkriterium (Platzhalter &quot;*&quot; ist m&#246;glich): 
+    <input name="search" size="40" />
+    </p>
+    <p>
+    <input type="checkbox" name="fingerprint" value="ON" />
+     Zeige OpenPGP &quot;Fingerabdruck&quot; des Schl&#252;ssels 
+    <input type="checkbox" name="exact" value="ON" />
+     Nur 100%ige Treffer ausgeben</p>
+    <p>
+    <input type="reset" value="L&#246;schen" />
+     
+    <input type="submit" value="Suche starten" />
+    </p>
+  </form>
+  <hr />
+  <strong>Suchergebnisse:</strong>
+   
+  <ul>
+    <li>
+      <p>Derzeit werden Hypertextlinks nur f&#252;r die KeyID generiert und f&#252;r Text, der sich zwischen den &quot;&lt;&quot; und &quot;&gt;&quot; Zeichen befindet. (Es hat sich als Standard herauskristalisiert, dass E-Mail Adressen zwischen den &quot;&lt;&quot; und &quot;&gt;&quot; 
+      <a href="mailto:%20Zeichen%20gesetzt%20wird%20innerhalb%20des%20KeyID%20Strings%20(z.B.%20%3Cstephan.reichenbach@web.de">Zeichen gesetzt wird innerhalb des KeyID Strings (z.B. &lt;stephan.reichenbach@web.de</a>
+      )&quot;.</p>
+    </li>
+    <li>
+      <p>Die Suchmaschine ist nicht die gleiche, wie beim PGP/GPG Programm auf Kommandozeile. Ein Wort in diesem Zusammenhang ist ein Zeichenkette. Beispiel: in der Zeichenfolge  befinden sich die Worte reichenbach, web und de.</p>
+      <p>Das bedeutet, dass je nach Suchkriterium Schl&#252;ssel angezeigt werden, die Fragmente des Suchstrings enthalten. Man kann dies umgehen, in dem man bei der Suche angibt: &quot;nur 100%ige Treffer anzeigen&quot; und den Suchbegriff so genau wie m&#246;glich bestimmt.</p>
+    </li>
+  </ul>
+  <hr />
+  <h2>
+    <a id="submit" name="submit">Schl&#252;ssel an den Schl&#252;sselserver &#252;bertragen</a>
+  </h2>
+  <p>So &#252;bertragen Sie ihren &#246;ffentlichen Schl&#252;ssel an den Schl&#252;sselserver:</p>
+  <ol>
+    <li>
+      <p>&#220;ber die &quot;Markieren/Einf&#252;gen Funktion (Strg+C/Strg+V)plazieren Sie ihren &#246;ffentlichen Schl&#252;ssel im Textfenster.</p>
+    </li>
+    <li>
+      <p>Bet&#228;tigen Sie die Schaltfl&#228;che &quot;Schl&#252;ssel an den Schl&#252;sselserver &#252;bertragen.</p>
+    </li>
+  </ol>
+  <p>Das war&#180;s auch schon! Der Schl&#252;sselserver wird ihren Schl&#252;ssel so schnell wie m&#246;glich einbinden.</p>
+  <hr />
+  <form action="/pks/add" method="post">
+    <p>Bitte f&#252;gen Sie ihren &#246;ffentlichen Schl&#252;ssel hier ein:</p>
+    <p>
+    <textarea name="keytext" rows="20" cols="66"></textarea>
+    </p>
+    <p>
+    <input type="reset" value="Zur&#252;cksetzen" />
+     
+    <input type="submit" value="Schl&#252;ssel an Schl&#252;sselserver &#252;bertragen" />
+    </p>
+  </form>
+  <hr />
+  <address>
+    <p>ins Deutsche &#252;bersetzt von 
+    <a href="mailto:stephan.reichenbach@web.de">Stephan J. Reichenbach</a>
+    <br />
+    PKSD, Original von Marc Horowitz 
+    <a href="mailto:marc@mit.edu">&lt;marc@mit.edu&gt;</a>
+    </p>
+  </address>
+	<!-- $Id: pks-commands.html.de,v 1.5 2003/02/05 20:01:43 rlaager Exp $ -->
+  </body>
+</html>
+

@@ -1,0 +1,188 @@
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+[
+  Czech:     Pro ziskani ceske verze tohoto textu poslete prosim e-mail se
+             "Subject" radkou "HELP CZ" na adresu
+             pgp-public-keys@keys.cz.pgp.net, nebo pristupte na URL
+             http://www.pgp.net/pgpnet/email-help-cz.html
+  Danish:    For at faa en dansk version af denne text skal du sende en
+             e-mail med en subject-tekst: "HELP DK" til
+             pgp-public-keys@keys.dk.pgp.net eller slaa op paa URL
+             http://www.pgp.net/pgpnet/email-help-dk.html
+  German:    Für eine deutschsprachige Fassung dieses Textes senden Sie
+             eine Mail mit dem Subject "HELP DE" an die folgende Adresse
+             pgp-public-keys@keys.de.pgp.net oder URL:
+             http://www.pgp.net/pgp/email-help-de.html
+  English:   For an English version of this message, send an e-mail with a
+             subject line of "HELP" to pgp-public-keys@keys.pgp.net, or
+             access the URL http://www.pgp.net/pgpnet/email-help-en.html
+  Spanish:   Para obtener una versión en castellano de este texto, envíe
+             un mail a pgp-public-keys@keys.nl.pgp.net con el "Subject"
+             HELP ES
+  Finnish:   Saadaksesi taman tekstin suomeksi, laheta osoitteeseen
+             pgp-public-keys@keys.nl.pgp.net tyhja viesti, jonka
+             Subject-kentta on "HELP FI".
+  French:    Pour une version française de çe texte, envoyez un
+             message au sujet de "HELP FR" à pgp-public-keys@keys.ch.pgp.net
+  Croatian:  Za hrvatsku verziju ovoga teksta posaljite poruku koja ce u
+             Subject imati "HELP HR" na adresu pgp-public-keys@keys.nl.pgp.net
+  Japanese:  Nihongo no setumei ga hosii baai wa Subject: ni "HELP JA"
+             to kaite, pgp-public-keys@keys.pgp.net ni e-mail.
+  Korean:    ¾Æ·¡ÀÇ ³»¿ëÀ» ÇÑ±Û·Î º¸½Ã·Á¸é Á¦¸ñ(Subject)ÀÌ "HELP KR" ÀÎ
+             ÀüÀÚ¿ìÆíÀ» pgp-public-keys@keys.kr.pgp.net À¸·Î º¸³»ÁÖ½Ê½Ã¿À.
+  Polish:    Zeby uzyskac polska wersje tej strony, wyslij list z linia
+             "HELP PL" w polu Subject na adres
+             pgp-public-keys@keys.pl.pgp.net lub zajrzyj pod URL
+             http://www.pgp.net/pgpnet/email-help-pl.html
+  Portuguese:Para obter uma versão em português deste texto, deve enviar um
+             mail para pgp-public-keys@keys.pt.pgp.net com o "Subject"
+             HELP PT
+  Norwegian: For aa faa dette dokumentet paa norsk, send "HELP NO" til
+             pgp-public-keys@keys.nl.pgp.net
+  Swedish:   For a Swedish version of this message, send an e-mail with a
+             subject line of "HELP SE" to pgp-public-keys@keys.se.pgp.net, or
+	     access the URL http://www.pgp.net/pgpnet/email-help-se.html
+  Chinese:   ¹ï¨ú±o¦¹¤@¤¤¤åª© PGP ¦øªA¾¹´£¨Ñ½u¤W»²§U»¡©ú, ½Ð E-mail µ¹
+	     pgp-public-keys@keys.tw.pgp.net, ©ó Subject: µù©ú "HELP TW" §Y¥i.
+]
+
+Verejne servery OpenPGP klicu
+-----------------------------
+
+Verejne servery OpenPGP klicu umoznuji vymenu verejnych casti OpenPGP klicu
+s pomoci postovnich systemu Internet mail a UUCP mail.
+Na tyto servery lze pristupovat take pres WWW rozhrani, ktere je umisteno
+na http://www.pgp.net/pgpnet/www-key.html, a spravci siti, ze kterych
+je na servery klicu casty pristup, mohou zvolit FTP prenos celeho
+souboru klicu z ftp://ftp.pgp.net/pub/pgp/keys.
+
+Tato sluzba pouze pomaha pri vymene klicu mezi uzivateli OpenPGP.
+Nexistuje ZADNA ZARUKA, ze klice sjou platne;
+pouzivejte prosim podpisu na klici pro overovani platnosti klicu.
+
+Kazdy server klicu zpracovava pozadavky ve forme e-mailovych zprav.
+Prikazy pro server se zadavaji v radku "Subject:".
+--------------------------------------  ======== -
+Nevkladejte prikazy do tela zpravy.
+=========== -----------------------
+
+	To: pgp-public-keys@keys.pgp.net
+	From: Josef.Novak@domena.cz
+	Subject: help cz
+
+Zaslani Vaseho klice na JEDEN server je dostatecne. Po zpracovani Vaseho
+klice jej server automaticky rozesle dale na ostatni servery.
+
+Chcete-li napr. zaslat Vas novy nebo zmeneny klic na server,
+poslete zpravu podobnou teto:
+
+	To: pgp-public-keys@keys.pgp.net
+	From: osef.Novak@domena.cz
+	Subject: add
+
+	-----BEGIN PGP PUBLIC KEY BLOCK-----
+	Version: 2.6
+
+	<blah blah blah>
+	-----END PGP PUBLIC KEY BLOCK-----
+
+ZRUSENI PLATNOSTI KLICE: Vytvorte revokacni (zneplatnujici) certifikat
+k Vasemu klici (viz PGP manual) a zaslete takto upraveny klic znovu
+na server prikazem ADD.
+
+Platne prikazy:
+
+Prikaz			Vyznam
+-----------------------	-------------------------------------------------------
+HELP			Napoveda
+HELP jazyk		Napoveda v narodnich jazycich (DE, EN, FI, FR, CZ, ..)
+ADD			Pridani verejneho PGP klice, ktery je v tele zpravy
+INDEX [1]		Seznam vsech znamych PGP klicu (-kv)
+INDEX jmeno		Seznam vsech PGP klicu obsahujicich dane jmeno
+VERBOSE INDEX [1]	Podrobny seznam vsech znamych PGP klicu (-kvv)
+VERBOSE INDEX jmeno	Podrobny seznam vsech PGP klicu obsahujicich dane jmeno
+GET [1]			Ziskani celeho souboru klicu (zatim neplatne)
+GET jmeno		Ziskani PGP klicu obsahujicich dane jmeno
+MGET regexp [2,3]	Ziskani PGP klicu podle regularniho vyrazu
+			regexp musi obsahovat alespon dva znaky
+LAST n [3]		Ziskani novych a zmenenych klicu za poslednich n dni
+-------------------------------------------------------------------------------
+
+[1] OCEKAVEJTE OBSAHLE ODPOVEDI
+    Tyto prikazy vraci enormne velke mnozstvi informaci, budte proto
+    opatrni! Nektere systemy nemusi zvladnout zpravy takove velikosti
+    a v techto pripadech budou zpravy vraceny na server klicu. Dostanete
+    take pravdepodobne mnohem vice klicu, nez budete kdy potrebovat.
+    Zde jsou velikosti souboru aktualni ke dni 28.2.1997, muzete vsak
+    ocekavat, ze budou rychle narustat:
+
+    - "INDEX" vraci jedinou zpravu velikosti 4MB
+    - "VERBOSE INDEX" vraci jedinou zpravu velikosti 8MB
+    - "GET" vraci cely soubor klicu s vice 55 000 polozkami, celkem 18MB,
+      jako 99 zprav, kazda s vice nez 200KB. To je velke mnozstvi zprav
+      a hodne prace, chcete-li vsechny tyto klice nechat zpracovat Vasi
+      lokalni kopii PGP
+
+    Velmi pravdepodobne budou tyto informace prevazne nepotrebne,
+    proto prosim pouzivejte tyto prikazy spolu ¨se jmenem,
+    cimz zmensite velikost zprav a ulevite administratorum Vaseho
+    systemu i serveru klicu. Zaroven budou takove zpravy pro Vas
+    uzitecnejsi.
+
+    UPOZORNENI: PGP pracuje velmi pomalu s velkymi soubory verejnych klicu.
+                Pridani kompletniho souboru klicu ze serveru klicu zabere
+                Vasemu lokalnimu PGP nekolik *DNI*.
+
+    Pokud *SKUTECNE* potrebujete cely seznam nebo dokonce soubor vsech klicu,
+    pouzijte *PROSIM* ftp prenos z ftp://ftp.pgp.net/pub/pgp/keys/ nebo
+    z nektereho z narodnich serveru.
+
+[2] REGULARNI VYRAZY V "MGET"
+    Zde jsou priklady pouziti MGET:
+
+	MGET franta		Vrati vsechny klice obsahujici "franta"
+	MGET brno		Vrati vsechny klice obsahujici "brno"
+	MGET E8F605A5|5F3E38F5	Vrati klice s dvema uvedenymi ID
+
+    Poznamka o regularnich vyrazech: Nejde o "divoke karty" (wildcards)
+    na Unixovych ci MSDOSovych prikazovych radkach. Hvezdicka * neznamena
+    "cokoliv", ale "nula nebo vice vyskytu predchoziho znaku nebo metaznaku",
+    napr.
+
+	a.*	odpovida vsemu zacinajicimu na a
+	ab*c	odpovida ac, abc, abbc, abbbc, atd.
+
+    Nezkousejte "MGET .*", radeji pouzijte "GET".
+
+[3] LIMIT POCTU KLICU
+    Nektere servery maji zaveden limit pro pocet klicu vracenych jako odpoved
+    na "MGET" nebo "LAST" dotazy, aby Vas nezahltily prilis mnoha klici
+    v pripade, ze dotaz byl odeslan nedopatrenim.
+
+Uzivatele by meli normalne pouzivat e-mailovou adresu
+`pgp-public-keys@keys.pgp.net' nebo nektery z narodnich serveru:
+
+	pgp-public-keys@keys.at.pgp.net
+	pgp-public-keys@keys.au.pgp.net
+	pgp-public-keys@keys.cz.pgp.net
+	pgp-public-keys@keys.de.pgp.net
+	pgp-public-keys@keys.es.pgp.net
+	pgp-public-keys@keys.fi.pgp.net
+	pgp-public-keys@keys.hr.pgp.net
+	pgp-public-keys@keys.hu.pgp.net
+	pgp-public-keys@keys.kr.pgp.net
+	pgp-public-keys@keys.nl.pgp.net
+	pgp-public-keys@keys.no.pgp.net
+	pgp-public-keys@keys.pl.pgp.net
+	pgp-public-keys@keys.se.pgp.net
+	pgp-public-keys@keys.tw.pgp.net
+	pgp-public-keys@keys.uk.pgp.net
+	pgp-public-keys@keys.us.pgp.net
+
+pripadne "ftp://ftp.pgp.net/pub/pgp" pro FTP prenosy.
+
+
+Uzivatelum se doporucuje pouzivat sluzby serveru domeny "*.pgp.net",
+jelikoz jsou stabilni a spolehlive.

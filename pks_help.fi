@@ -1,0 +1,139 @@
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+[
+  Czech:     Pro ziskani ceske verze tohoto textu poslete prosim e-mail se
+             "Subject" radkou "HELP CZ" na adresu
+             pgp-public-keys@keys.cz.pgp.net, nebo pristupte na URL
+             http://www.pgp.net/pgpnet/email-help-cz.html
+  Danish:    For at faa en dansk version af denne text skal du sende en
+             e-mail med en subject-tekst: "HELP DK" til
+             pgp-public-keys@keys.dk.pgp.net eller slaa op paa URL
+             http://www.pgp.net/pgpnet/email-help-dk.html
+  German:    Für eine deutschsprachige Fassung dieses Textes senden Sie
+             eine Mail mit dem Subject "HELP DE" an die folgende Adresse
+             pgp-public-keys@keys.de.pgp.net oder URL:
+             http://www.pgp.net/pgp/email-help-de.html
+  English:   For an English version of this message, send an e-mail with a
+             subject line of "HELP" to pgp-public-keys@keys.pgp.net, or
+             access the URL http://www.pgp.net/pgpnet/email-help-en.html
+  Spanish:   Para obtener una versión en castellano de este texto, envíe
+             un mail a pgp-public-keys@keys.nl.pgp.net con el "Subject"
+             HELP ES
+  Finnish:   Saadaksesi taman tekstin suomeksi, laheta osoitteeseen
+             pgp-public-keys@keys.nl.pgp.net tyhja viesti, jonka
+             Subject-kentta on "HELP FI".
+  French:    Pour une version française de çe texte, envoyez un
+             message au sujet de "HELP FR" à pgp-public-keys@keys.ch.pgp.net
+  Croatian:  Za hrvatsku verziju ovoga teksta posaljite poruku koja ce u
+             Subject imati "HELP HR" na adresu pgp-public-keys@keys.nl.pgp.net
+  Japanese:  Nihongo no setumei ga hosii baai wa Subject: ni "HELP JA"
+             to kaite, pgp-public-keys@keys.pgp.net ni e-mail.
+  Korean:    ¾Æ·¡ÀÇ ³»¿ëÀ» ÇÑ±Û·Î º¸½Ã·Á¸é Á¦¸ñ(Subject)ÀÌ "HELP KR" ÀÎ
+             ÀüÀÚ¿ìÆíÀ» pgp-public-keys@keys.kr.pgp.net À¸·Î º¸³»ÁÖ½Ê½Ã¿À.
+  Polish:    Zeby uzyskac polska wersje tej strony, wyslij list z linia
+             "HELP PL" w polu Subject na adres
+             pgp-public-keys@keys.pl.pgp.net lub zajrzyj pod URL
+             http://www.pgp.net/pgpnet/email-help-pl.html
+  Portuguese:Para obter uma versão em português deste texto, deve enviar um
+             mail para pgp-public-keys@keys.pt.pgp.net com o "Subject"
+             HELP PT
+  Norwegian: For aa faa dette dokumentet paa norsk, send "HELP NO" til
+             pgp-public-keys@keys.nl.pgp.net
+  Swedish:   For a Swedish version of this message, send an e-mail with a
+             subject line of "HELP SE" to pgp-public-keys@keys.se.pgp.net, or
+	     access the URL http://www.pgp.net/pgpnet/email-help-se.html
+  Chinese:   ¹ï¨ú±o¦¹¤@¤¤¤åª© PGP ¦øªA¾¹´£¨Ñ½u¤W»²§U»¡©ú, ½Ð E-mail µ¹
+	     pgp-public-keys@keys.tw.pgp.net, ©ó Subject: µù©ú "HELP TW" §Y¥i.
+]
+
+OpenPGP-avainpalvelimen sähköpostiliittymän käyttöohje
+------------------------------------------------------
+
+Julkiset OpenPGP-avainpalvelimet mahdollistavat julkisten avainten vaihdon 
+sähköpostia käyttämällä.  Mikäli käytössäsi on WWW, voit käyttää myös 
+WWW-käyttöliittymää osoitteesta http://www.pgp.net/pgp/www-key.html ja 
+jos olet ylläpitäjänä ympäristössä, jossa avaimia joudutaan etsimään 
+paljon, haluat ehkä kopioida koko avainrenkaan osoitteesta 
+ftp://ftp.pgp.net/pub/pgp/
+
+Tämän palvelun tarkoituksena on ainoastaan auttaa PGP-käyttäjiä 
+välittämään avaimia toisilleen.  Se EI yritä taata avaimen 
+oikeellisuutta; tällaiseen varmistukseen on käytettävä avainten 
+allekirjoituksia.
+
+Kukin avainpalvelin käsittelee pyynnöt sähköpostiviesteinä.
+Palvelimelle annetut komennot annetaan Subject-rivillä.  Huomaa, että
+-------------------------------------- ======= ----------------------
+komentoja EI pidä laittaa itse viestiin.
+--------- == ---------------------------
+
+        To: pgp-public-keys@keys.pgp.net
+        From: johndoe@some.where.ac.uk
+        Subject: help
+
+Riittää, kun lähetät avaimesi YHDELLE palvelimelle.  Kun se on 
+käsitellyt avaimesi, se lähettää ADD-pyyntösi automaagisesti muille 
+palvelimille.
+
+Esimerkiksi, jos haluat lähettää avaimesi avainpalvelimeen, tai 
+päivittää avaintasi, jos se on jo siellä, lähetä seuraavan tyyppinen 
+viesti mille tahansa avainpalvelimelle:
+
+	To: pgp-public-keys@keys.pgp.net
+	From: johndoe@some.site.edu
+	Subject: add
+
+	-----BEGIN PGP PUBLIC KEY BLOCK-----
+	Version: 2.6
+
+	<blah blah blah>
+	-----END PGP PUBLIC KEY BLOCK-----
+
+VÄÄRIIN KÄSIIN JOUTUNEET AVAIMET: Luo ns. "Key Revocation Certificate" 
+(lue PGP:n käyttöohjeista miten se tehdään) ja lähetä avaimesi 
+palvelimeen uudestaan ADD-komennolla.
+
+Sallitut komennot ovat:
+
+Komento                Viestin sisältö
+---------------------- ----------------------------------------------------
+ADD                    Julkinen PGP-avaimesi
+INDEX tunniste         Lista kaikista palvelimen tuntemista avaimista (-kv)
+VERBOSE INDEX tunniste Lista kaikista avaimista, enemmän tietoa (-kvv)
+GET tunniste           Hae vain tunnistetta vastaava avain
+LAST päivät            Hae avaimet, jotka on päivitetty viimeisten
+                       "päivät" päivän aikana
+---------------------------------------------------------------------------
+
+
+Huomautus GET-komennosta: jos mahdollista, hae avainrengas FTP:llä 
+vaikkapa osoitteesta ftp.pgp.net:/pub/pgp/keys sen sijaan, että 
+käyttäisit GET-komentoa koko renkaan hakemiseen.  Tällä hetkellä 
+rengas käsittää yli 50 tiedostoa, joiden koko on 300 kilotavua. 
+Vaatii aika paljon työtä laittaa ne oikeaan järjestykseen, jotta ne 
+voisi syöttää PGP:lle.
+
+Käyttäjien tulisi yleensä käyttää osoitetta pgp-public-keys@keys.pgp.net 
+tai omassa maassa olevaa palvelinta, kuten:
+
+	pgp-public-keys@keys.at.pgp.net
+	pgp-public-keys@keys.au.pgp.net
+	pgp-public-keys@keys.cz.pgp.net
+	pgp-public-keys@keys.de.pgp.net
+	pgp-public-keys@keys.es.pgp.net
+	pgp-public-keys@keys.fi.pgp.net
+	pgp-public-keys@keys.hr.pgp.net
+	pgp-public-keys@keys.hu.pgp.net
+	pgp-public-keys@keys.kr.pgp.net
+	pgp-public-keys@keys.nl.pgp.net
+	pgp-public-keys@keys.no.pgp.net
+	pgp-public-keys@keys.pl.pgp.net
+	pgp-public-keys@keys.se.pgp.net
+	pgp-public-keys@keys.tw.pgp.net
+	pgp-public-keys@keys.uk.pgp.net
+	pgp-public-keys@keys.us.pgp.net
+
+käytettäessä sähköpostia ja ftp://ftp.pgp.net/pub/pgp käytettäessä FTP:tä.
+

@@ -1,0 +1,140 @@
+Content-Type: text/plain; charset=iso-8859-1; format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+[
+  Czech:     Pro ziskani ceske verze tohoto textu poslete prosim e-mail se
+             "Subject" radkou "HELP CZ" na adresu
+             pgp-public-keys@keys.cz.pgp.net, nebo pristupte na URL
+             http://www.pgp.net/pgpnet/email-help-cz.html
+  Danish:    For at faa en dansk version af denne text skal du sende en
+             e-mail med en subject-tekst: "HELP DK" til
+             pgp-public-keys@keys.dk.pgp.net eller slaa op paa URL
+             http://www.pgp.net/pgpnet/email-help-dk.html
+  German:    Für eine deutschsprachige Fassung dieses Textes senden Sie
+             eine Mail mit dem Subject "HELP DE" an die folgende Adresse
+             pgp-public-keys@keys.de.pgp.net oder URL:
+             http://www.pgp.net/pgp/email-help-de.html
+  English:   For an English version of this message, send an e-mail with a
+             subject line of "HELP" to pgp-public-keys@keys.pgp.net, or
+             access the URL http://www.pgp.net/pgpnet/email-help-en.html
+  Spanish:   Para obtener una versión en castellano de este texto, envíe
+             un mail a pgp-public-keys@keys.nl.pgp.net con el "Subject"
+             HELP ES
+  Finnish:   Saadaksesi taman tekstin suomeksi, laheta osoitteeseen
+             pgp-public-keys@keys.nl.pgp.net tyhja viesti, jonka
+             Subject-kentta on "HELP FI".
+  French:    Pour une version française de çe texte, envoyez un
+             message au sujet de "HELP FR" à pgp-public-keys@keys.ch.pgp.net
+  Croatian:  Za hrvatsku verziju ovoga teksta posaljite poruku koja ce u
+             Subject imati "HELP HR" na adresu pgp-public-keys@keys.nl.pgp.net
+  Japanese:  Nihongo no setumei ga hosii baai wa Subject: ni "HELP JA"
+             to kaite, pgp-public-keys@keys.pgp.net ni e-mail.
+  Korean:    ¾Æ·¡ÀÇ ³»¿ëÀ» ÇÑ±Û·Î º¸½Ã·Á¸é Á¦¸ñ(Subject)ÀÌ "HELP KR" ÀÎ
+             ÀüÀÚ¿ìÆíÀ» pgp-public-keys@keys.kr.pgp.net À¸·Î º¸³»ÁÖ½Ê½Ã¿À.
+  Polish:    Zeby uzyskac polska wersje tej strony, wyslij list z linia
+             "HELP PL" w polu Subject na adres
+             pgp-public-keys@keys.pl.pgp.net lub zajrzyj pod URL
+             http://www.pgp.net/pgpnet/email-help-pl.html
+  Portuguese:Para obter uma versão em português deste texto, deve enviar um
+             mail para pgp-public-keys@keys.pt.pgp.net com o "Subject"
+             HELP PT
+  Norwegian: For aa faa dette dokumentet paa norsk, send "HELP NO" til
+             pgp-public-keys@keys.nl.pgp.net
+  Swedish:   For a Swedish version of this message, send an e-mail with a
+             subject line of "HELP SE" to pgp-public-keys@keys.se.pgp.net, or
+	     access the URL http://www.pgp.net/pgpnet/email-help-se.html
+  Chinese:   ¹ï¨ú±o¦¹¤@¤¤¤åª© PGP ¦øªA¾¹´£¨Ñ½u¤W»²§U»¡©ú, ½Ð E-mail µ¹
+	     pgp-public-keys@keys.tw.pgp.net, ©ó Subject: µù©ú "HELP TW" §Y¥i.
+]
+
+OpenPGP Public Email Keyservers
+-------------------------------
+
+Der eksisterer OpenPGP public email key servers som giver mulighed for at 
+udveksle offentlige nøgler ved brug af Internet og UUCP mail 
+systemer. Hvis du har mulighed for at accesse WWW vil du sikkert 
+foretrække at bruge WWW interface og administratorer af servere, som 
+har jævnlige opslag, vil sikkert foretrække at kopiere hele key-rings 
+fra FTP server
+
+Denne service eksisterer kun for at hjælpe til at flytte keys mellem 
+OpenPGP-brugere. Vi forsøger IKKE at garantere at en key er en valid key; 
+brug digital signatur på nøglen til denne sikkerhed.
+
+Hver key-server bearbejder forespøgsler i form af e-mails. Kommandoer til
+serveren afgives på  Subject: linien (emne).
+-------------------- =======  --------------
+Placér dem IKKE i teksten af meddelelsen.
+---------- ==== -------------------------
+
+        To:   pgp-public-keys@keys.pgp.net
+        From: johndoe@some.where.ac.uk
+        Subject: help dk
+
+Det er nok at sende din key til EN server. Efter at have behandlet din 
+key, vil serveren automatisk videresende din ADD-kommando til andre 
+key-servere.
+
+For at tilføje din key to en key-server eller opdatere den 
+eksisterende behøver du blot at sende en meddelelse som nedenstående 
+til en vilkårlig key-server:
+
+        To: pgp-public-keys@keys.pgp.net
+        From: johndoe@some.site.edu
+        Subject: add
+
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: 5.0
+
+
+        -----END PGP PUBLIC KEY BLOCK-----
+
+KOMPROMITTEREDE KEYS: Opret en 'Key Revocation Certificate' (check PGP 
+dokumenatation om hvordan) og send din key til en vilkårlig key-server 
+en gang til med en ADD-kommando.
+
+Valide kommandoer:
+
+Kommando               Resultat
+---------------------- -------------------------------------------------
+
+HELP                   Returnerer denne meddelelse
+HELP language          Returnerer sprogspecifikke hjæpe tekster (DK, DE, EN,
+                       ES, FI, FR, HR, NO)
+ADD                    Tilføjer en PGP public key fra tekst-afsnittet af din e-mail
+INDEX userid           Lister alle PGP keys, der indeholder userid
+VERBOSE INDEX userid   Verbose liste af alle keys, der indeholder userid
+GET userid             Hent netop denne key (-kxa)
+LAST days              Hent keys, der er opdaterert indenfor de sidste 'days' dage
+------------------------------------------------------------------------
+
+KEY BERGÆNSNINGER
+
+Nogle key-servers har en begrænsning på antallet af key-rings, som 
+returneres i "MGET" eller "LAST" forespørsler, med henblik på ikke at 
+dynge dig til med for mange keys i tilfælde af at du lavde en 
+tyrkfejl.
+
+Brugere skal normalt bruge e-mail-adresse: 
+``pgp-public-keys@keys.pgp.net'', eller en national key-server ved at 
+bruge:
+
+	pgp-public-keys@keys.at.pgp.net
+	pgp-public-keys@keys.au.pgp.net
+	pgp-public-keys@keys.cz.pgp.net
+	pgp-public-keys@keys.de.pgp.net
+	pgp-public-keys@keys.es.pgp.net
+	pgp-public-keys@keys.fi.pgp.net
+	pgp-public-keys@keys.hr.pgp.net
+	pgp-public-keys@keys.hu.pgp.net
+	pgp-public-keys@keys.kr.pgp.net
+	pgp-public-keys@keys.nl.pgp.net
+	pgp-public-keys@keys.no.pgp.net
+	pgp-public-keys@keys.pl.pgp.net
+	pgp-public-keys@keys.se.pgp.net
+	pgp-public-keys@keys.tw.pgp.net
+	pgp-public-keys@keys.uk.pgp.net
+	pgp-public-keys@keys.us.pgp.net
+
+som email interface, og ``ftp://ftp.pgp.net/pub/pgp/'' til FTP access.

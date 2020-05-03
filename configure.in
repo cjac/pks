@@ -1,0 +1,62 @@
+dnl $Id: configure.in,v 1.4 2003/02/02 17:22:26 dmshaw Exp $
+dnl
+dnl Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+dnl See the LICENSE file in the release for redistribution information.
+
+AC_INIT(pksd.c)
+
+AC_PROG_INSTALL
+AC_PROG_CC
+
+case "$ac_cv_prog_gcc" in
+	yes)
+		gcc_cflags="-Wall -pedantic";;
+esac
+AC_SUBST(gcc_cflags)
+
+dnl the variable is necessary because of the way linux bash (at least)
+dnl handles IFS
+sendmailpath=/usr/sbin:/usr/lib:/etc
+AC_PATH_PROG(SENDMAIL, sendmail, sendmail, $sendmailpath)
+
+AC_CHECK_HEADERS(bstring.h)
+AC_CHECK_HEADERS(sys/select.h)
+
+AC_CHECK_FUNCS(mmap madvise)
+
+# If we can't find connect, try looking in -lsocket and -lnsl.  The
+# Irix 5 libc.so has connect and gethostbyname, but Irix 5 also has
+# libsocket.so which has a bad implementation of gethostbyname (it
+# only looks in /etc/hosts), so we only look for -lsocket if we need
+# it.
+AC_FUNC_CHECK(connect, :, [AC_CHECK_LIB(socket, socket)
+			   AC_CHECK_LIB(nsl, gethostbyname)])
+
+
+AC_CACHE_CHECK("for socklen_t", pks_cv_socklen_t,
+AC_TRY_COMPILE([#include <sys/types.h>
+#include <sys/socket.h>],
+[socklen_t socklen;
+socklen = sizeof(struct sockaddr);],
+pks_cv_socklen_t=yes, pks_cv_socklen_t=no))
+
+if test "$pks_cv_socklen_t" = "yes" ; then
+	AC_DEFINE(HAVE_SOCKLEN_T)
+fi
+
+AC_ARG_ENABLE(old-database,
+[  --enable-old-database   Emulate database bugs from version 0.9.5 and earlier])
+if test x$enable_old_database = xyes ; then
+     AC_DEFINE(KEYID_TRANSFORM)
+     AC_DEFINE(DBKEY_BUG)
+fi
+
+dnl check for tcpwrapper
+AC_ARG_WITH(libwrap,dnl 
+[  --with-libwrap          Link with the TCP Wrapper libwrap],
+AC_CHECK_LIB(wrap,main)
+)
+# yuck. AC_CONFIG_SUBDIRS should use mkdir -p or equivalent
+test -d db2-sleepycat || mkdir db2-sleepycat
+AC_CONFIG_SUBDIRS(db2-sleepycat/dist)
+AC_OUTPUT(Makefile mkpksdconf)

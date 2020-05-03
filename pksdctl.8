@@ -1,0 +1,69 @@
+.\"
+.\" $Id: pksdctl.8,v 1.2 2003/01/31 01:12:43 rlaager Exp $
+.\"
+.\" Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+.\" See the LICENSE file in the release for redistribution information.
+.\"
+
+.TH PKSDCTL 8 "17 November 1996"
+
+.SH NAME
+
+pksdctl \- Public Key Server Control program
+
+.SH SYNOPSIS
+
+.B pksdctl
+socket string
+
+.SH DESCRIPTION
+pksdctl sends strings to a running pksd via a UNIX domain socket.  The
+strings (which must be a single argument in the shell) are interpreted
+by the running pksd process as commands.  Three string forms are supported:
+
+.TP 15
+.B backup
+The
+.B backup
+command from previous versions is no longer supported.  The procedures
+referred to in
+.B pks-intro(8)
+should be followed to make a backup.
+
+.TP 15
+.B disable userid
+All keys matching the
+.B userid
+will have the disabled flag set.
+
+.TP 15
+.B mail msg
+The file
+.B msg
+will be parsed as a mail server request.  If the file is a valid
+request, the request succeeds, and the response can be enqueued, then
+the file is removed.
+
+.TP 15
+.B shutdown
+The key server shuts down cleanly and exits.
+
+.SH AUTHOR
+
+Marc Horowitz, Massachusetts Institute of Technology
+
+.SH BUGS
+
+Visit the bug tracking system linked from http://sourceforge.net/projects/pks
+to view or report bugs.
+
+.SH COPYRIGHT
+
+Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+
+This software doesn't have a warranty, express or implied. See the LICENSE file 
+in the source distribution for full conditions.  
+
+.SH SEE ALSO
+
+pksd(8), pks-intro(8)

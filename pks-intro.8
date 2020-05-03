@@ -1,0 +1,141 @@
+.\"
+.\" $Id: pks-intro.8,v 1.3 2003/01/31 01:10:18 rlaager Exp $
+.\"
+.\" Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+.\" See the LICENSE file in the release for redistribution information.
+.\"
+
+.TH PKS-INTRO 8 "24 January 1996"
+
+.SH NAME
+
+pks-intro \- OpenPGP Public Key Server Introduction
+
+.SH DESCRIPTION
+
+The OpenPGP Public Key Server system is a set of programs which manages and
+provides general access to a database of OpenPGP public keys.
+
+.PP
+The database itself is not a standard OpenPGP keyring.  Instead, the keys
+which are managed by the server are stored in a set of Berkeley DB 2.x
+format database files.  Most operations only take a fraction of a
+second, and even large operations involving tens of thousands of keys
+usually take only a few minutes.
+
+.SS Programs
+
+.TP
+.B pksclient(8)
+This is a command-line program for managing the database.  It supports
+All the operations of the daemon, and a few more.
+
+.TP
+.B pksd(8)
+This is the public key server daemon.  It processes HTTP requests and
+mail requests to add keys to the database and query the database
+contents.
+
+.TP
+.B pksdctl(8)
+This is a helper program used by
+.B pksd-mail.sh
+and
+.BR pksd-queue-run.sh .
+
+.TP
+.B pks-mail.sh
+This script is run for each mail message received to queue the message.
+
+.TP
+.B pks-queue-run.sh
+This script is used to process the queue of incoming mail messages.
+
+.SS Configuration files and data files
+
+.TP
+.B pksd.conf(5)
+This file contains all the configuration data needed to run the
+system.
+
+.TP
+.B <db_dir>/keydbXXX
+These files contain the actual database.  The first files contain the
+OpenPGP key information, indexed by the key ID.  The XXX is 000, 001, 002,
+up to the number of key database files minus 1.
+
+.TP
+.B <db_dir>/num_keydb
+This file contains the number of key database files.  In order to
+handle very large databases on operating systems with limited file
+sizes, the key database can be split into up to 1000 separate files.
+
+.TP
+.B <db_dir>/timedb
+This file indexes the key ID's by the time they were added to the database.
+
+.TP
+.B <db_dir>/worddb
+This file indexes the key ID's by the words in the key's user ID's.
+
+.SH SEARCHING
+
+The search engine is not the same as that used by the gpg(1) or pgp(1)
+programs.  It will return information for all keys which contain all the
+words in the search string.  A ``word'' in this context is a string of
+consecutive alphabetic characters.  For example, in the string
+\fCuser@example.com\fR, the words are \fCuser\fR, \fCexample\fR, and
+\fCcom\fR.
+
+.SH DATABASE ADMINISTRATION
+
+\fBpksd\fR uses the locking, logging, and transaction facilities of Berkeley
+DB.  This provides for added safety in the event of a server crash, and also
+allows for multiple pksd and/or pksclient processes to access the database at
+the same time.
+
+This does make management of a key server a little more complicated.
+The Berkeley DB reference section on
+.I Berkeley DB Transactional Access Methods Applications
+.nf
+<http://www.sleepycat.com/docs/ref/toc.html#transapp>
+.fi
+describes the procedures and commands which are used for
+checkpointing, archive (backup), and recovery.  You should familiarize
+yourself with this information before running a key server.
+
+.SH DESIGN
+
+The key server was Marc Horowitz's Advanced Undergraduate Project (which is
+really a thesis, but with a different name) for his Bachelor's degree in
+Computer Science and Engineering at the Massachusetts Institute of
+Technology.  You can read detailed discussion of the internals of this
+key server, you can read the his AUP at
+.nf
+<http://www.mit.edu/people/marc/pks/thesis.html>.
+.fi
+
+.SH FILES
+
+pksd.conf, <db_dir>/keydbXXX, <db_dir>/num_keydb, <db_dir>/timedb, <db_dir>/worddb
+
+.SH AUTHOR
+
+Marc Horowitz, Massachusetts Institute of Technology
+
+.SH BUGS
+
+Visit the bug tracking system linked from http://sourceforge.net/projects/pks
+to view or report bugs.
+
+.SH COPYRIGHT
+
+Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+
+This software doesn't have a warranty, express or implied. See the LICENSE file 
+in the source distribution for full conditions.  
+
+.SH SEE ALSO
+
+gpg(1), pgp(1), pksclient(8), pksd(8), pksd.conf(5), 
+pksdctl(8),pks-mail.sh(8), pks-queue-run(8)

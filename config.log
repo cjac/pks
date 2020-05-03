@@ -1,0 +1,37 @@
+This file contains any messages produced by compilers while
+running configure, to aid debugging if configure makes a mistake.
+
+configure:561: checking for a BSD compatible install
+configure:616: checking for gcc
+configure:729: checking whether the C compiler (gcc  ) works
+configure:745: gcc -o conftest    conftest.c  1>&5
+configure:742:1: warning: return type defaults to 'int' [-Wimplicit-int]
+ main(){return(0);}
+ ^~~~
+configure:771: checking whether the C compiler (gcc  ) is a cross-compiler
+configure:776: checking whether we are using GNU C
+configure:785: gcc -E conftest.c
+configure:804: checking whether gcc accepts -g
+configure:846: checking for sendmail
+configure:881: checking how to run the C preprocessor
+configure:902: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:964: checking for bstring.h
+configure:974: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:970:10: fatal error: bstring.h: No such file or directory
+ #include <$ac_hdr>
+          ^~~~~~~~~  
+compilation terminated.
+configure: failed program was:
+#line 969 "configure"
+#include "confdefs.h"
+#include <bstring.h>
+configure:1004: checking for sys/select.h
+configure:1014: gcc -E  conftest.c >/dev/null 2>conftest.out
+configure:1044: checking for mmap
+configure:1072: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1044: checking for madvise
+configure:1072: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1103: checking for connect
+configure:1131: gcc -o conftest -g -O2   conftest.c  1>&5
+configure:1247: checking for socklen_t
+configure:1261: gcc -c -g -O2  conftest.c 1>&5

@@ -1,0 +1,16 @@
+Content-Type: text/plain; charset=us-ascii
+
+OpenPGP Public Key Server
+
+For questions or comments regarding this key server site,
+contact $maintainer
+Current version: $version
+
+
+NOTE!
+
+This service is provided to facilitate public-key cryptography for
+demonstration and educational purposes.
+
+It is the responsibility of users of public-key cryptography to ensure
+that their activities conform to legal requirements.

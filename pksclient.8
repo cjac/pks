@@ -1,0 +1,160 @@
+.\"
+.\" $Id: pksclient.8,v 1.1.1.1 2002/09/04 20:48:53 dtype Exp $
+.\"
+.\" Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+.\" See the LICENSE file in the release for redistribution information.
+.\"
+.TH PKSCLIENT 8 "17 November 1996"
+.SH NAME
+pksclient \- Public Key Server Client
+.SH SYNOPSIS
+.B pksclient
+/db/path cmd [args ...]
+.SH DESCRIPTION
+pksclient is a command line interface which allows the administrator
+to perform key server operations directly instead of through the
+daemon.  The software will use locking and transaction semantics
+unless you specify otherwise.  Never do this if another process has
+the database open.  Once the command is completed,
+.B pksclient
+will attempt to checkpoint the database and remove any excess log
+files.
+
+Each command takes the path to the directory which contains the
+database files, a command name, and possibly a list of arguments to
+the command.  Some commands take an optional flags argument.  Flags
+are single letters as described for each command, concatenated into a
+single argument.
+
+.TP 15
+.B pksclient /db/path create [num_files]
+Create an empty database.  If a database exists in the directory, it
+is destroyed.  If
+.B num_files
+is specified, then the key database will be split into that many
+files.  If it is not specified, then three key database files will be
+created.
+.TP
+.B pksclient /db/path recover
+Recover an inconsistent database.  This is equivalent to the
+.B db_recover(8)
+command, but it uses a larger cache for better performance.
+.TP
+.B pksclient /db/path add filename [flags]
+Add a keyring to the database.  The
+.B filename
+may refer to a keyring file (.pgp format), or an ASCII-armored keyring
+(.asc format).  If the
+.B 'n'
+flag is specified, then an incremental for the new keyring relative to
+the database is generated to stdout.  If the
+.B 'd'
+flag is specified, then the disabled flag will not be stripped from
+the input file.  This is useful if you are initializing the database
+for the first time with a keyring from another key server which
+includes disabled keys. If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.TP
+.B pksclient /db/path get userid [flags]
+An ASCII-armored keyring containing all the keys matching the 
+.B userid
+is printed to stdout.  If the
+.B 'e'
+flag is specified, then the key's user id must be an exact
+case-insensitive substring of the 
+.B userid
+argument.  If the
+.B 'a'
+flag is specified, then the 
+.B userid
+argument is ignored, and all keys in the database are returned.  If
+the
+.B 'b'
+flag is specified, then the output keyring will be in binary format
+instead of ASCII-armor format.  If the
+.B 'i'
+flag is specified, then errors will be ignored.  This is used when
+recovering from a corrupt database.  If the
+.B 'd'
+flag is specified, then disabled keys will be returned.  If the
+.B 's'
+flag is specified, the selected keys will be output unsorted to
+stdout.  This flag implies the
+.B 'b'
+flag.  If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.TP
+.B pksclient /db/path index userid [flags]
+An index listing for all the keys matching the 
+.B userid
+is printed to stdout.  If the 
+.B 'v'
+flag is specified, then signatures are included in the output.  If the
+.B 'f'
+flag is specified, then the key fingerprint is included in the output.
+If the 
+.B 'e'
+flag is specified, then the key's user id must be an exact
+case-insensitive substring of the 
+.B userid
+argument.  If the 
+.B 'a'
+flag is specified, then the
+.B userid
+argument is ignored, and all keys in the database are indexed.  If the
+.B 'i'
+flag is specified, then errors will be ignored.  This is used when
+recovering from a corrupt database.  If the 
+.B 'd'
+flag is specified, then disabled keys will be returned.  If the
+.B 's'
+flag is specified, the index will be output unsorted to stdout.  If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.TP
+.B pksclient /db/path since time [flags]
+An ASCII-armored keyring containing all the keys added to the database
+or changed since the unix timestamp 
+.B since
+is printed to stdout.  The timestamp that the
+database was last modified is printed to stderr.  If the
+.B 'b'
+flag is specified, then the output keyring will be in binary format
+instead of ASCII-armor format. If the
+.B 'r'
+flag is specified, then the time given is taken as the number of seconds
+the in the past the dump should start (
+.I since 86400 r
+is thus equivalent to the
+.I LAST 1
+mail command).  If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.TP
+.B pksclient /db/path delete userid [flags]
+All keys matching the
+.B userid
+are deleted from the database.  If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.TP
+.B pksclient /db/path disable userid [flags]
+All keys matching the
+.B userid
+have the disabled flag set.  If the
+.B 'c'
+flag is specified, then the flag is cleared instead of set.  If the
+.B 't'
+flag is specified, the operation will take place without logging and
+transactions.  This is faster, but less safe.
+.SH SEE ALSO
+pks-intro(8), pksd(8)
+.SH AUTHOR
+Marc Horowitz, Massachusetts Institute of Technology

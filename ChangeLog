@@ -1,0 +1,731 @@
+2003-02-06  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.spec: Updated version number.
+
+2003-02-06  Richard Laager  <rlaager@bigfoot.com>
+
+	* NEWS: Added a little bit about the 0.9.6 release.
+
+	* globals.h: Changing version number to 0.9.6.
+
+2003-02-06  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Pass DESTDIR settings down to db2-sleepycat.
+
+	* Makefile.in: Fixed bug in SYSCONF installation. The installer was 
+	checking to see if the source file already existed instead of if the 
+	destination file already existed. As a result, pksd.conf was never 
+	being installed.
+
+	* kvcv.c: decode_pubkey call fixes
+
+	* pgpdump.c: decode_pubkey call fixes
+
+	* pks-commands.html: "&gt;" was "gt;" in one spot: corrected
+
+	* pks.init: Various changes to make this script mostly work.
+
+	* pkscheck.c: Added string.h to the list of included files.
+
+	* pksmailreq.c: Added stdlib.h to the list of included files.
+
+	* wwwtest.c: Added stdlib.h to the list of included files.
+
+	* wwwtest.c: www_init call fixes
+
+	* wwwtest.c: www_reply call fixes
+
+2003-02-06  Richard Laager  <rlaager@bigfoot.com>
+
+	* ChangeLog: ChangeLog entry standardization.
+
+2003-02-05  Richard Laager  <rlaager@bigfoot.com>
+
+	* ChangeLog: Changed the date from 2004 to 2003 on the last entry.
+
+	* pks-commands.html: Changed from DOS to Unix line-endings.
+
+	* pks-commands.html.de: Changed from DOS to Unix line-endings.
+
+	* pks-commands.html.ja: Changed from DOS to Unix line-endings.
+
+2003-02-05  Richard Laager  <rlaager@bigfoot.com>
+
+	* Various pks_help character set updates, bug fixes, etc.
+
+2003-02-04  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Adding ja to the list of translated pks_help files.
+
+2003-02-04  Richard Laager  <rlaager@bigfoot.com>
+
+	* README: Changed the disk size estimate from 2 GB to 5 GB.
+
+2003-02-03  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_help.cz: Added the Japanese entry to the list of translations.
+	
+	* pks_help.de: Added the Japanese entry to the list of translations.
+	
+	* pks_help.dk: Added the Japanese entry to the list of translations.
+	
+	* pks_help.en: Added the Japanese entry to the list of translations.
+	
+	* pks_help.es: Added the Japanese entry to the list of translations.
+	
+	* pks_help.fi: Added the Japanese entry to the list of translations.
+	
+	* pks_help.fr: Added the Japanese entry to the list of translations.
+	
+	* pks_help.hr: Added the Japanese entry to the list of translations.
+	
+	* pks_help.ja: Adding a Japanese translation of pks_help. The
+	translation was done by Hironobu Suzuki <hironobu@h2np.net>. Hironobu
+	told me he's allowing this file to be public domain.
+	
+	* pks_help.kr: Added the Japanese entry to the list of translations.
+	
+	* pks_help.no: Added the Japanese entry to the list of translations.
+	
+	* pks_help.pl: Added the Japanese entry to the list of translations.
+	
+	* pks_help.pt: Added the Japanese entry to the list of translations.
+	
+	* pks_help.se: Added the Japanese entry to the list of translations.
+	
+	* pks_help.tw: Added the Japanese entry to the list of translations.
+
+2003-02-03  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Added cz, hr, kr, pl, pt, se, and tw to the list of
+	pks_help files to be installed as DATA. I forgot to do this before.
+
+2003-02-03  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_types.c (sigs_elem_order): Compare sig data only without
+	packet headers in case we get the same sig encoded in multiple
+	ways.  Noted by Jason Harris.
+
+2003-02-02  David Shaw  <dshaw@jabberwocky.com>
+
+	* UPGRADING: New.
+
+	* configure.in: Add --enable-old-database configure option that
+	replaces the existing keyid-transform and adds a define to un-fix
+	the subkey timestamp bug.
+
+	* kd_search.c (make_keys_elem): Optionally un-fix the subkey
+	timestamp bug.
+
+2003-02-01  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.init: Corrected the startup routine for pks-queue-run.sh. The
+	init script was one argument -- the delay -- instead of the config file
+	and the delay.
+
+2003-02-01  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Committing "a patch to add basic dependencies to 
+	Makefile.in for pks." The patch was submitted by Jason Harris.
+
+2003-01-30  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks-mail.sh: Incoming messages are no longer processed in this
+	script. They are left in the queue for pks-queue-run.sh to handle.
+	
+	* pks-queue-run.sh: This script now runs continuously. It handles all
+	incoming messages in the queue.
+	
+	* pks.init: pks-queue-run.sh is started and stopped with pksd.
+
+2003-01-30  Richard Laager  <rlaager@bigfoot.com>
+
+	* pksdctl.8: General documentation clean-ups.
+
+2003-01-30  Richard Laager  <rlaager@bigfoot.com>
+
+	* LICENSE: Changed URL to point to SourceForge.
+
+	* NEWS: Changed URL to point to SourceForge.
+	
+	* README: Small documentation clean-ups.
+	
+	* mail_intro: Removed Marc's name. I changed the line to list the name
+	of the server instead.
+	
+	* pks-commands.html: Minor cosmetic clean-ups. I also ran HTML Tidy on 
+	the code.
+	
+	* pks-commands.html.de: Minor cosmetic clean-ups. I also ran HTML Tidy 
+	on the code.
+	
+	* pks-commands.html.ja: Minor cosmetic clean-ups. I also ran HTML Tidy 
+	on the code.
+	
+	* pks-intro.8: General documentation clean-ups.
+	
+	* pks.spec: Changed "PGP" to "OpenPGP" throughout the spec file.
+	
+	* pks_help.cz: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.de: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.dk: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.en: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP.
+	
+	* pks_help.es: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.fi: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.fr: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.hr: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.kr: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.no: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.pl: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.pt: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.se: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pks_help.tw: Updated the list of help file translations. Updated the 
+	list of national servers. Changed PGP to OpenPGP. (I'm not sure how 
+	this affected the native grammar.)
+	
+	* pksd.8: General documentation clean-ups.
+	
+	* pksclient.8: General documentation clean-ups.
+
+2003-01-30  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_help.cz: Adding pks_help.cz from pgp.net.
+	
+	* pks_help.kr: Adding pks_help.kr from pgp.net.
+	
+	* pks_help.pl: Adding pks_help.pl from pgp.net.
+	
+	* pks_help.pt: Adding pks_help.pt from pgp.net.
+	
+	* pks_help.se: Adding pks_help.se from pgp.net.
+	
+	* pks_help.tw: Adding pks_help.tw from pgp.net.
+
+2003-01-26  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_types.c (sigs_elem_order): Do not strip different signatures
+	issued from the same keyid.  Do strip total duplicate signatures.
+
+2003-01-26  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_search.c (make_keys_elem): Fix a problem when multiple-subkey
+	keys can cause the word index to not find the key.  The database
+	was indexing on the subkey timestamp rather than the primary.
+
+	* kd_index.c (keys_elem_genindex, keys_elem_genmrindex),
+	kd_search.c (make_keys_elem), kd_types.h, kd_types.c
+	(keys_elem_alloc, keys_elem_free): Simplify keytype storage to
+	only keep track of the primary since that is what the user will
+	see anyway.
+
+2003-01-26  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_search.c (v4_v3_keyid_transform, kd_output_wde): Do some
+	magic to work around a bug in previous version of pksd.  The
+	problem is that they calculated v4 RSA keyids as if they were v3,
+	and stored them in the database that way.  So, in order to fix
+	this, we catch cases where the actual keyid does not match the
+	keyid that the database thinks we have and substitute what the
+	database thinks.  Thus, key deletions work without leaving the
+	database in an inconsistent state.  Eventually this function
+	should be removed. ./configure --disable-keyid-transform disables
+	this.
+
+	* kd_index.c (keys_elem_genindex): Generate v4 fingerprints for
+	all v4 keys.
+
+	* kd_types.h, kd_types.c (keys_elem_alloc, keys_elem_free),
+	kd_index.c (keys_elem_genindex, keys_elem_genmrindex), kd_search.c
+	(make_keys_elem): Make keytype into an xbuffer so the subkey type
+	does not override the primary type (which is the one we're really
+	interested in).
+
+	* pgputil.h, pgputil.c (generate_dsa_keyid): Rename to
+	generate_v4_keyid.
+	(decode_pubkey): Pass back version of the pk.  Generate v4 keyids
+	for v4 keys.
+
+	* configure.in: Add --disable-keyid-transform to turn off the
+	backwards compatible v4->v3 RSA keyid transformation.
+
+2003-01-25  Richard Laager  <rlaager@bigfoot.com>
+	
+	* pks-mail.sh: Small files are still processed immediately. Large files
+	are now left for pks-queue-run.sh. The idea behind this (and some of
+	the code) were provided by Teun Njissen <teun.njissen@uvt.nl>.
+ 
+	* pks-queue-run.sh: Small files are processed first with a small delay
+	in between each file. Large files are processed second, with a larger
+	delay in between each file. The idea behind this (and some of the code)
+	were provided by Teun Njissen <teun.njissen@uvt.nl>.
+
+2003-01-25  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_search.h, kd_search.c (kd_keyblock_iterate, make_keys_elem):
+	Disallow new subkey packets when we already have an existing
+	subkey packet.  Disallow subkey revocation packets (pksd never
+	supported them, and this at least prevents key corruption).  Note
+	the "errorhack" is used to not display error messages except for
+	an ADD: this is so servers with corrupt keys already in their
+	databases do not fill up their logs complaining about this.
+
+	* kd_add.c (kd_add_1), kd_search.c (kd_get_keys_by_keyid,
+	do_all_keys): Change all callers to kd_keyblock_iterate to pass in
+	the errorhack value.
+
+2003-01-19  Richard Laager  <rlaager@bigfoot.com>
+
+	* MRHKP: Adding David Shaw's e-mail (in mbox format) describing the
+	machine-readable HKP format.
+	
+	* pks.spec: Added MRHKP as a documention file.
+
+2003-01-17  Richard Laager  <rlaager@bigfoot.com>
+
+	* multiplex.c: Now including time.h. This patch was provided by
+	Adrian 'Dagurashibanipal' von Bidder <avbidder@fortytwo.ch>.
+	
+	* www.c: Now including arpa/inet.h. this patch was provided by
+	Adrian 'Dagurashibanipal' von Bidder <avbidder@fortytwo.ch>.
+
+2003-01-06  David Shaw  <dshaw@jabberwocky.com>
+
+	* database.h, pks_www.c (pks_www): If options=mr is passed for a
+	GET request, use content-type application/pgp-keys.  This is
+	perhaps not optimal, as all key responses should really have this
+	content type.  However, 99.9% of browsers out there won't know
+	what to do with this type, so only use it when MR is requested.
+
+2003-01-04  David Shaw  <dshaw@jabberwocky.com>
+
+	* www.h, www.c (www_reply): Allow passing a content-type value to
+	override the default text/html.  Change all callers.
+
+	* pks_www.c (pks_www): Use a text/plain content type for
+	machine-readable indexes.
+
+2002-12-12  Richard Laager  <rlaager@bigfoot.com>
+
+	* ChangeLog: Correcting Stephan J. Reichenbach's e-mail address in the
+	first entry for 2002-12-11.
+	
+	* pks-commands.html.de: Adding changes by Stephan J. Reichenbach
+	<stephan.reichenbach@web.de> to replace non-Roman charactesr with HTML
+	entities. (This was done at my request to eliminate the few non-ASCII
+	characters in the file.)
+
+2002-12-11  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks-commands.html.de: Reworked the HTML a little to make it be
+	closer to that of pks-commands.html.
+
+2002-12-11  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks-commands.html.de: Adding German version of pks-commands.html.
+	This translation was contributed by Stephan J. Reichenbach
+	<stephan.reichenbach@web.de>.
+
+2002-12-01  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_search.c: Committed a patch to fix a memory leak. "[T]he db2
+	cursor was not being closed in word_key_intersect()." the patch was
+	provided by Nickolai Zeldovich <kolya@mit.edu>.
+
+2002-11-25  Richard Laager  <rlaager@bigfoot.com>
+
+	* pksd.conf.5: Commited a (slightly modified) patch to correct the
+	lack of documentation for the max_reply_keys configuration value. The
+	patch was provided by Adrian 'Dagurashibanipal' von Bidder
+	<avbidder@fortytwo.ch>.
+
+2002-11-14  Richard Laager  <rlaager@bigfoot.com>
+
+	* multiplex.c: Committed a patch to fix "another file descriptor
+	pseudo-leak -- idle TCP connections weren't being timed out, and the
+	code that claimed to do so in the existing implmentation didn't really
+	work at all." The patch was provided by Nickolai Zeldovich
+	<kolya@mit.edu>.
+
+2002-11-11  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_www.c: Committed a patch "to prevent a file descriptor leak".
+	The patch was provided by Nickolai Zeldovich <kolya@mit.edu>.
+
+2002-11-11  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_delete.c: Committed a patch "to make consistency errors
+	non-fatal". The patch was provided by Jason Harris
+	<jharris@widomaker.com>.
+
+2002-11-04  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_config.c pks_config.h pks_www.c pks_www.h pksd.c www.c www.h:
+	Commited patch to allow pksd to bind to a specific IP address. The
+	patch was provided by Jonathan McDowell <noodles@earth.li>.
+	
+2002-11-04  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Committed patch to fix another issue with the Makefile.
+	patch was provided by Jonathon Weiss <jsweiss@mit.edu>.
+
+2002-10-20  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Committed patch to fix an issue with make install. The
+	patch was provided by Jonathon Weiss <jweiss@mit.edu>.
+
+2002-10-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Committed patch to only install SYSCONF files if the
+	file does not already exist. The original patch was written by
+	Christoph Martin <martin@uni-mainz.de>. I applied the change to
+	Makefile.in rather than Makefile.
+
+2002-10-08  David Shaw  <dshaw@jabberwocky.com>
+
+	* database.h, kd_index.c (userids_elem_genmrindex,
+	keys_elem_genmrindex, kd_index_1), pks_www.c (pks_www):
+	Machine-readable index format for easy nonhuman parsing.
+
+	* pks_www.c (pks_www): Fix compiler and type warnings.
+
+	* kd_disable.c, kd_index.c, logging.c, pksdctl.c, kd_delete.c,
+	kd_get.c, kd_types.c, pksd.c: Fix some missing prototypes.
+
+2002-10-07  Richard Laager  <rlaager@bigfoot.com>
+
+	* globals.h: Changed version number to 0.9.5+cvs.
+
+2002-09-29  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks-commands.html.ja: Added Japanese translation of
+	pks-commands.html. The translation was done by Hironobu Suzuki
+	<hironobu@h2np.net>.
+
+2002-09-29  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Added $(ALL_SUPERUSER) to the list of things to remove
+	on a "make clean". I forgot this before.
+
+2002-09-29  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.spec: Added a revised description. (I made some modifications to
+	the description proved by Inaki Arenaza <iarenaza@escomposlinux.org>.)
+
+2002-09-29  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: pks-commands.html is now installed in localstatedir as
+	index.html to allow for direct web queries (no need for an external
+	HTTP server to handle the HTML Forms page)
+	
+	* mkpksdconf.in: added www_dir option
+	
+	* pks-commands: Removed "http://localhost:11371/" from URLs
+	
+	* pks.spec: updated for pks-commands.html installation change
+	
+	* pksconfig.h: added www_dir option
+	
+	* pks_www.c: Using www_dir instead of db_dir for the location of
+	index.html. Also, log_error is called instead of log_fatal if the
+	homepage can't be loaded.
+	
+	* pks_www.h: added www_dir option
+	
+	* pksd.c: added www_dir option
+
+2002-09-29  Richard Laager  <rlaager@bigfoot.com>
+
+	* db2-sleepycat/dist/Makefile.in: Changed RPM_BUILD_DIR to DESTDIR.
+	I missed this with the change to the pks Makefile.in.
+
+2002-09-28  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: Changed RPM_BUILD_DIR to DESTDIR. There's no need to
+	have RPM hard-coded in there. The Debian package will use this
+	variable, too. Also, I added an INSTALL_SCRIPT variable. This is so
+	that we can more easily merge the NetBSD patch-aa.
+	
+	* pks.spec: Changed RPM_BUILD_DIR to DESTDIR. This was done to reflect
+	the changes in Makefile.in, of course.
+
+2002-09-28  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_search.c: I added a patch by Marc Horowitz that fixes a buffer
+	overflow with long user IDs.
+	
+	* multiplex.c: I added a patch by Nickolai Zeldovich <kolya@mit.edu>
+	that makes some FDs non-blocking. This has fixed regular pksd hangs
+	for the guys at MIT.
+	
+	* pkscheck.c: I added a patch that does some memory initialization.
+	(This patch came from the pks distribution that is being used at MIT.)
+
+2002-09-28  Richard Laager  <rlaager@bigfoot.com>
+
+	* ChangeLog: added my e-mail address to two entries that lacked it
+	
+	* NEWS: Updated to reflect the upcoming 0.9.5 release.
+	
+	* globals.h: Updated to reflect the upcoming 0.9.5 release.
+
+2002-09-27  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.init: I changed the test for the config file to use the file as
+	specified in the CONFIG variable, instead of /etc/pksd.conf. Also,
+	I set the chmod command on pksd_socket to use the right path.
+	
+	* pks.spec: Fixed a typo on a date in the changelog section. Removed
+	the code that creates the sbin directory. (The Makefile does this now.)
+	The buildroot is now under %{_tmppath} so that the RPMs can be built
+	as a normal user. The code that checks for an existing database and
+	creates one if needed now uses the correct path. The database is now
+	permissioned properly. Error output due to a user already existing is
+	suppressed when useradd is called.
+
+2002-09-25  Richard Laager  <rlaager@bigfoot.com>
+
+	* Makefile.in: pksd is now placed in the sbindir instead of the bindir
+	
+	* pks.spec: the spec file was updated to reflect that the Makefile now
+	places pksd in the sbindir instead of the bindir
+
+2002-09-25  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks-commands.html: Added pks-commands.html. (I found this in the
+	Debian package of pks.)
+	
+	* Makefile.in: Added pks-commands.html to the list of DATA files.
+
+2002-09-25  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_help.es: Added Spanish help file updates by Inaki Arenaza
+	<iarenaza@escomposlinux.org>.
+
+2002-09-24  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_config.c: Added patch by Inaki Arenaza
+	<iarenaza@escomposlinux.org> to fix a bug involing the lack of strict
+	token matching for max_last_reply_keys.
+
+2002-09-23  Richard Laager  <rlaager@bigfoot.com>
+
+	* pksd.c: added db_dir option (from NetBSD patch-ab)
+	
+	* pks_www.c: added homepage_str code (from NetBSD patch-ac)
+	
+	* pks_www.h: added db_dir option (from NetBSD patch-ad)
+
+2002-09-23  Richard Laager  <rlaager@bigfoot.com>
+
+	* www.c: Added a patch by Jason Harris. (I tweaked some asthetic
+	issues that I had with the patch, but that's it.) ECONNABORTED,
+	EINTR, and EPROTO are all handled errors for the accept() call.
+	Each of the errno values are wrapped in #ifdef...#endif to prevent
+	compilation failures if they aren't defined.
+
+2002-09-14  Richard Laager  <rlaager@bigfoot.com>
+
+	* mail_intro: removed "format=flowed" from the MIME header, at Marcel
+	Waldvogel's <marcel@wanda.ch> request.
+
+2002-09-13  Richard Laager  <rlaager@bigfoot.com>
+
+	* mail_intro: Added MIME header. (Patch from Marcel Waldvogel
+	<marcel@wanda.ch>.)
+	
+	* pks.spec: Documentation changes. (Patch from Marcel.)
+	
+	* Makefile.in: Documentation changes. (Patch from Marcel.)
+
+2002-09-12  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_help.dk pks_help.en pks_help.fr pks_help.fi pks_help.es 
+	pks_help.no: Updated list of keys.??.pgp.net, according to Jason Harris 
+	<jharris@widomaker.com>. (Basically, I removed the keys.fi.pgp.net and 
+	keys.no.pgp.net entries.)
+
+2002-09-12  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_help.dk pks_help.en pks_help.fr pks_help.fi pks_help.es 
+	pks_help.no: Added/changed according to the versions from Marcel 
+	Waldvogel <marcel@wanda.ch>.
+	
+	* mail_send.c (mail_send): Added a patch from Marcel that "tries to 
+	open the default language file when the specified help language was not 
+	found. [I also deleted the default language helpfile caching, as (1) 
+	the fallback to the default language could not easily take advantage of 
+	teh caching, (2) the caching does not seem useful in terms of speed 
+	gain, and (3) it would require a restart of pksd when the language 
+	files were changed.]".
+
+2002-09-10  Richard Laager  <rlaager@bigfoot.com>
+
+	* Adding pks_help.en and pks_help.de from Marcel Waldvogel 
+	<marcel@wanda.ch>
+	
+	* pks.spec: Added pks_help.en and pks_help.de as documentation files.
+
+2002-09-10  Richard Laager  <rlaager@bigfoot.com>
+
+	* mkpksdconf.in: Added entry with description for www_readonly.
+
+2002-09-10  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.spec: Changed /var/lib/pks/db to /var/lib/pks. Bug fix suggested 
+	by Jan Dreyer <dreyerja@math.uni-paderborn.de>. Added 
+	--mandir=/usr/share/man to the ./configure options. (Also suggested by 
+	Jan Dreyer.)
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.spec: MAJOR CHANGES: The spec file was radically updated for the
+	upcoming pks-0.9.5rc1. I made a couple of non-backwards-compatible
+	changes. The database is now stored in /var/lib/pks instead of
+	/home/keyserver. (This was done for FHS compliance.) The PREFIX is now
+	/usr instead of /usr/local. For more details, see the %changelog that 
+	is within the spec file itself.
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.spec: Added spec file from:
+	ftp://ftp.rediris.es/rediris/software/pks/pks-0.9.4-8.src.rpm
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_add.c (kd_keys_elem_merge): Changed C++ style comments into
+	C style comments to eliminate a compiler warning.
+	
+	* kd_index.c (keys_elem_genindex): Changed C++ style comments into
+	C style comments to eliminate a compiler warning.
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks.init: Cleaned up the init script.
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* Added pks.init. This was pks.iris from:
+	ftp://ftp.rediris.es/rediris/software/pks/pks-0.9.4-8.src.rpm
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_generic.c (kd_add_userid_to_wordlist): explicitly initialized
+	"ret" to eliminate a GCC warning
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pgputil.c (decode_sig): Changed the key ID used when listing X.509
+	signatures from 0xFFFFFFFF to 0x????????.
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pgputil.c (decode_sig): added x509patch by Marc Horowitz
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pgpsplit.c (main): Removed extra initialization of s.f and
+	s.filenum.
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_index.c (sigs_elem_genindex): X.509 Signatures are listed with a
+	user ID of "[X.509 Signature]" instead of "(Don't understand X.509
+	signatures yet)".
+	
+	* kvcv.c (kvcv): X.509 Signatures are listed with a
+	user ID of "[X.509 Signature]" instead of "(Don't understand X.509
+	signatures yet)".
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* pks_config.c: the order of max_last_reply_keys relative to the other
+	configuration options is now consistent
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* kvcv.c (kvcv): errors with decode_userid are now logged as
+	"decode_userid" instead of "decode_pubkey"
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* applied patch3 (transaction checkpointing, more logging in kvcv.c,
+	X.509 non-support messages, max_last_reply_keys configuration option)
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* www.c (listener): Xander Jansen's fix for crashes on Solaris when
+	client connections are aborted
+
+2002-09-08  Richard Laager  <rlaager@bigfoot.com>
+
+	* kd_add.c (add_word_to_worddb): Teun Nijssen's fix for a buffer
+	overflow.
+	
+	* kd_delete.c (delete_word_from_worddb): Teun Nijssen's fix for a 
+	buffer overflow
+
+2002-09-05  David Shaw  <dshaw@jabberwocky.com>
+
+	* kd_index.c (keys_elem_genindex): Missed bit of the beauty patch.
+
+2002-09-05  M. Drew Streib  <dtype@dtype.org>
+
+	* applied elements of the beauty patch, sans the fingerprinting
+	changes in kd_index that david already updated
+
+	* Somewhat fixed distclean to actually work, although it doesn't
+	automatically do a 'make clean' anymore. For now, a 
+	'make clean distclean' will take care of things properly, where
+	before it didn't work at all.
+
+2002-09-05  David Shaw  <dshaw@jabberwocky.com>
+
+	* multiplex.c (mp_write): Nickolai Zeldovich's fix for garbage
+	mixed in with large keys.
+
+	* kd_search.c (parse_keyidstr): Do not error on too large keyids,
+	but rather shrink them until they are the correct size.  This is
+	to allow a graceful change to allowing 16-digit or full
+	fingerprint requests in a future version.
+
+	* armor.c: Put actual pksd version in Version: string.
+
+$Id: ChangeLog,v 1.86.2.1 2003/02/07 04:36:55 rlaager Exp $

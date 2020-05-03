@@ -1,0 +1,130 @@
+These are the instructions for building, installing, and running the OpenPGP
+Public Key Server.
+
+Choose a location to install the system.  This should be on the local
+disk.  If you plan on running with a full key database, you should
+have at least 5 gigabytes free.  If you are planning on running the mail
+server, you will need to install the system as root.  Otherwise, you can
+install it as any user.  For the rest of these instructions, PREFIX
+represents the installation path.
+
+
+** To Build the OpenPGP Public Key Server:
+
+In the top level, do
+
+	./configure --prefix=PREFIX
+	make
+
+On some systems, you may have to use GNU make.  If you see
+dependencies failing, this is the problem.
+
+** To Install the OpenPGP Public Key Server:
+
+In the top level, do
+
+	make install
+
+You can look in PREFIX/man for more detailed documentation on the
+various programs.  An overview is in pks-intro(8).
+
+As a part of the installation, a template configuration file was
+installed in PREFIX/etc/pksd.conf.  This file is fully documented in
+pksd.conf(5).  If you don't want to read the manual, the template file
+contains comments which describe what you need to change to get your
+server to run.
+
+The key server uses syslog for logging.  It logs using the local2
+facility (if available), and various priority levels as described in pksd(8).
+If you want to get any logging, you should add an appropriate entry to
+/etc/syslog.conf on your machine.
+
+If you have configured the mail server component of the key server,
+there is one more step you need to take so that the server can
+actually get mail.  In your aliases file, create the following lines:
+
+    pgp-public-keys: "|PREFIX/bin/pks-mail.sh PREFIX/etc/pksd.conf"
+    pgp: pgp-public-keys
+
+The aliases file is commonly /etc/mail/aliases, /etc/aliases, etc.
+
+You might also need to add aliases for the mail addresses you
+configured in pksd.conf.  You will also need to make sure the
+permissions on PREFIX/var/incoming allow both the mailer and whatever
+user the pksd runs as to insert and delete files.
+
+If you have configured the web server component of the package, you
+will want to install the pks commands web page somewhere.  The key
+server does not serve arbitrary HTML files, so you must use another
+web server for this.  An example HTML file can be found in
+pks-commands.html in the distribution.
+
+** To Run the OpenPGP public key server:
+
+Before running the server, read and familiarize yourself with the
+information in the DATABASE ADMINISTRATION section of pks-intro(8)
+(PREFIX/man/man8/pks-intro.8), in particular the section on
+checkpointing.
+
+To create an empty database, run:
+PREFIX/bin/pksclient PREFIX/var/db create
+
+If a database already exists, this will remove all its
+contents.
+
+To initialize the database with the contents of a keyring, run:
+PREFIX/bin/pksclient PREFIX/var/db add keyring.pgp
+
+You can do this multiple times to add the contents of several keyrings.
+Because of the transaction semantics, adding very large keyrings will be
+inefficient.  You should use the PREFIX/bin/pgpsplit program to split
+any very large keyrings into chunks (about 10 MB is fine) and add them
+individually.  Adding a 20,000 element keyring on a SparcStation 5
+running Solaris takes about an hour.  Your system may take more or
+less time.  In the current implementation, this may also be a
+memory-intensive task.
+
+To have the daemon run when the system boots, you should run the
+following programs in your /etc/rc.local or equivalent file:
+
+PREFIX/bin/pksd PREFIX/etc/pksd.conf
+sleep 5
+PREFIX/bin/pks-queue-run.sh PREFIX/etc/pksd.conf
+
+You can always run this command by hand if you want.
+
+If you want to use a a SystemV-style init script, pks.init is provided in the
+source. 
+
+** For more information:
+
+There is an overview of the system in pks-intro(8).
+
+** If you have any problems, questions, or comments:
+
+Send an e-mail to pgp-keyserver-folk@flame.org.  This is a public listserv
+dedicated to all keyserver issues, regardless of keyserver software. As such,
+normal listserv etiquette is expected. Be sure to mention that you're running
+PKS and provide the version number.
+
+** Acknowledgements
+
+Thanks to Michael Helm <helm@fionn.es.net>, Marc Dyksterhouse
+<marcd@pgp.com>, "Teun Nijssen" <Teun.Nijssen@kub.nl>, George Ross
+<gdmr@dcs.ed.ac.uk>, Marcel Waldvogel <mwa@tik.ee.ethz.ch>, Olaf
+Dabrunz <dabrunz@santana.rrz.uni-hamburg.de>, Paul Leyland
+<pcl@sable.ox.ac.uk>, Hironobu Suzuki
+<hironobu@h2np.suginami.tokyo.jp>, Josef Pojsl
+<josef.pojsl@skynet.cz>, and all the other keyserver testers and
+maintainers for their help testing the keyserver, reporting bugs, and
+especially contributing fixes and new features.
+
+Contributors since version 0.9.4 are listed with their contributions in the
+ChangeLog file.
+
+================================================================
+
+$Id: README,v 1.3 2003/02/04 22:52:42 rlaager Exp $
+
+Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+See the LICENSE file in the release for redistribution information.

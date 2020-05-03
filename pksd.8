@@ -1,0 +1,89 @@
+.\"
+.\" $Id: pksd.8,v 1.3 2003/01/31 01:10:28 rlaager Exp $
+.\"
+.\" Copyright (c) 1996, Marc Horowitz.  All rights reserved.
+.\" See the LICENSE file in the release for redistribution information.
+.\"
+
+.TH PKSD 8 "17 November 1996"
+
+.SH NAME
+
+pksd \- OpenPGP Public Key Server Daemon
+
+.SH SYNOPSIS
+
+.B pksd FILE
+
+.SH DESCRIPTION
+
+pksd is a daemon which implements the functions of an OpenPGP public key
+server.  It supports key searches, requests, additions, and modifications via
+web and e-mail interfaces.
+
+The server takes a single argument, which is the name of the
+configuration file.  The format of this file is documented in
+\fBpksd.conf(5)\fR.
+
+The server supports queries via a modified version of HTTP known as HKP
+(which allows for queries via web browsers), MRHKP (the machine-readable HKP
+format), and an e-mail interface. HKP is implemented by a few form URI's
+which are described in the accompanying design document.  MRHKP has its own
+design document. The e-mail interface is described in the pks_help documents.
+
+In order to control the running daemon, the \fBpksdctl(8)\fR program
+is used to send messages to the running server via a unix domain
+socket.  The type and syntax of these messages is documented in the
+\fBpksdctl(8)\fR man page.
+
+.SH INCREMENTAL MESSAGES
+
+The mail server is also used for incremental distribution of
+modifications between peer key servers.  When a key server receives an
+update (meaning new keys, signatures, revocations, etc.), this update
+is forwarded to the servers listed as peers (with the \fBsyncsite\fR
+keyword) in the \fBpksd.conf(5)\fR file.  In order to avoid updates
+looping forever, the servers which have processed the update are
+listed in the message.
+
+To improve performance, when an incremental or add is received, only
+the part(s) of that request which are not already part of the key server
+database are included.  If an incremental or add contains no new data,
+no incremental is generated at all.
+
+.SH DISABLED KEYS
+
+It is not useful to remove a key from the key server database. Keys in
+use will likely be sent to a key server again. Keys not in use are best
+left on the key server for archival purposes.  In the future, someone
+might need to verify a signature from such a key, for example.
+In order to remove a key from circulation for whatever reason, the key
+can be made "disabled". This server uses the disabled flag in the OpenPGP
+file format.  To prevent this flag from being misused, the disabled flag is
+treated as a special case.  When a keyring is merged into the database,
+the disabled flags are ignored.  Disabled keys in the database cannot be
+retrieved from the database, but they are returned by searches.
+
+.SH FILES
+
+pksd.conf
+
+.SH AUTHOR
+
+Marc Horowitz, Massachusetts Institute of Technology
+
+.SH BUGS
+
+Visit the bug tracking system linked from http://sourceforge.net/projects/pks
+to view or report bugs.
+
+.SH COPYRIGHT
+
+Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+
+This software doesn't have a warranty, express or implied. See the LICENSE file 
+in the source distribution for full conditions.  
+
+.SH SEE ALSO
+
+pksclient(8), pksd.conf(5), pksdctl(8), pks-intro(8)

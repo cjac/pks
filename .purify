@@ -1,0 +1,11 @@
+suppress umr write; mpool_write
+suppress umr __addel
+suppress umr bind; www_init
+suppress umr __bind; bind; www_init
+suppress umr listen; www_init
+suppress umr accept; listener
+suppress umr __bind; __accept; accept; listener
+suppress umr bind; pks_socket_init
+suppress umr listen; pks_socket_init
+suppress umr accept; pks_socket_listener
+suppress umr _libc_write; __db_write; __memp_pgwrite; __memp_bhwrite; __memp_ralloc; memp_fget

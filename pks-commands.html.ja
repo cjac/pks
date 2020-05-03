@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <title>OpenPGP Public Key Server Commands</title>
+  </head>
+  <body>
+    <h1>OpenPGP 公開鍵サーバー</h1>
+    <h2><a href="#extract">公開鍵の検索</a></h2>
+    <h2><a href="#submit">公開鍵の登録</a></h2>
+    <hr />
+    <h2><a id="extract" name="extract">公開鍵の検索</a></h2>
+    <p>公開鍵の検索方法:</p>
+    <ol>
+      <li>
+        <p>通常表示か詳細表示かのチェックボタンを選択します。 詳細表示では公開鍵にたいするすべての署名を表示します。</p>
+      </li>
+      <li>
+        <p>検索文字列ボックス中に検索したいIDを入力します。 (16進数で表現されている鍵IDを指定し検索する時は、必ず数字の先頭は0x で始まらなければなりません。)</p>
+      </li>
+      <li>
+        <p>検索開始ボタンを押してください。</p>
+      </li>
+      <li>
+        <p>先に指定したIDにマッチする鍵のすべてを表示します。</p>
+      </li>
+      <li>
+        <p>表示された鍵のリストにある各々の鍵IDは、さらにリンクされています。 そのリンクをクリックすると、自動的にその鍵IDを使って公開鍵が検索 され公開鍵の内容が表示されます。 (i.e. &lt;<a href="http://pgp.nic.ad.jp:11371/pks/lookup?op=get&amp;exact=on&amp;search=hironobu@pgp.nic.ad.jp">hironobu@pgp.nic.ad.jp</a>&gt;). 表示される公開鍵の内容はASCII-armorとよばれるエンコードされた文字列と して表示されます。</p>
+      </li>
+    </ol>
+    <hr />
+    <form action="http://pgp.nic.ad.jp:11371/pks/lookup" method="get">
+      <p>通常検索: <input type="radio" name="op" value="index" checked="checked" /> 詳細検索: <input type="radio" name="op" value="vindex" /></p>
+      <p>検索文字列: <input name="search" size="40" /></p>
+      <p><input type="checkbox" name="fingerprint" /> 公開鍵の指紋(<em>fingerprints</em>)を表示する</p>
+      <p><input type="checkbox" name="exact" /> 完全に一致した公開鍵のみ表示する</p>
+      <p><input type="reset" value="Reset" /> <input type="submit" value="Do the search!" /></p>
+    </form>
+    <hr />
+    <strong>公開鍵の検索における注意点:</strong> 
+    <ul>
+      <li>
+        <p>現在、リンクを設定しているのは公開鍵IDとブランケットに囲まれた文字列 (一般的にはメールアドレスになっています)のみです。</p>
+      </li>
+      <li>
+        <p>サーチエンジンはpgpと同じではありません。検索語にマッチしたすべて の内容を表示します。 検索語というのはアルファベットの文字列です。たとえば user@example.comという検索文字列は、 user、example、 comという３つの検索語へ分解されます。 これは別の検索文字列とマッチします。たとえば、 User &lt;example@foo.com&gt; という検索文字列も先の検索と同じことになります。 もし避けたい場合は、検索時に「完全に一致した公開鍵のみ表示する」を選択 してください。このアルゴリズムはどんな場合にも当てはまるわけではありま せん。もし、長い名前の一部分を指定した場合などは、無効になります。</p>
+      </li>
+    </ul>
+    <hr />
+    <h2><a id="submit" name="submit">公開鍵の新規登録</a></h2>
+    <p>公開鍵サーバーに新しい公開鍵を登録する方法:</p>
+    <ol>
+      <li>
+        <p>ASCII-armor化された公開鍵を テキストボックスにカット＆ペースとしてください。</p>
+      </li>
+      <li>
+        <p>&quot;登録&quot;のボタンを押します。</p>
+      </li>
+    </ol>
+    <p>これで終了です。公開鍵サーバは直ちに処理を行ないます。実際に登録できた かチェックしたい時は、<a href="#extract">検索 してみてください。</a></p>
+    <hr />
+    <form action="http://pgp.nic.ad.jp:11371/pks/add" method="post">
+      <p>OpenPGP 公開鍵(ASCII-armor):</p>
+      <p><textarea name="keytext" rows="20" cols="66">
+      </textarea></p>
+      <p><input type="reset" value="Reset" /> <input type="submit" value="Submit this key to the keyserver!" /></p>
+    </form>
+    <hr />
+    <address>
+      <p>日本語版作成: すずきひろのぶ <a href="mailto:hironobu@pgp.nic.ad.jp">&lt;hironobu@pgp.nic.ad.jp&gt;</a>
+      <br />
+      </p>
+    </address>
+    <!-- $Id: pks-commands.html.ja,v 1.3 2003/02/05 20:01:43 rlaager Exp $ -->
+  </body>
+</html>

@@ -1,0 +1,86 @@
+For general information about the keyserver, visit
+<http://sourceforge.net/projects/pks/>.
+
+***** Changes in version 0.9.6
+
+- A new machine-readable format exists for easy parsing by GPG, et al.
+- Lots of bug squashing, documentation updates, etc.
+- Temporary fixes for corruption that occurs with subkeys. (The packets
+  are dropped instead of being added in a corrupt format.)
+  READ THE FILE "UPGRADING" FOR INFORMATION ON UPGRADING TO 0.9.6!!!
+
+***** Changes in version 0.9.5
+
+- Allow 16-digit and 40-digit keyids/fingerprints.  Currently only the
+  low 8 digits are used, but this should smooth a transition to a
+  future pksd that allows long keyid or fingerprint searches.
+- Nickolai Zeldovich's fix for garbage mixed in with large keys.
+- Add missing transaction hooks (patch2)
+- Make checkpoint code retry if necessary (patch2)
+- Change the way memory is allocated in some places to reduce the
+number of extra calls to malloc and free (patch2)
+- Fix a bug in db 2.7.5 which causes db_recover to fail under some
+circumstances. (patch2)
+- Stopped flooding caused by multiple revokation certs (flood.patch)
+- In kd_search, fixed bug in using maxid when keyid not found
+(kdsearch_error.patch)
+- WWW key submissions disabled by default (JHPatch1)
+- nicer formatting of SHA-1 fingerprints (JHPatch1)
+- pksdctl() usage page improvements (JHPatch1)
+- manual page improvements (JHPatch1)
+- Fixed buffer overflow from long arguments to search in HDP requests,
+as mentioned on bugtraq (kd_search by Jason Harris)
+- Fixed problem of randomly not sending updated sigs to syncsites due
+to improperly initialized memory. (patch_pf20020615)
+- Added compile-time support for X509 recognition (x509.patch)
+- Fixed makefiles to more support rpm build roots (pks-bldroot.patch)
+- Changed install to put db2 in own subdir (pks-db2-install.patch)
+- Added libwrap support (pks-libwrap.patch)
+- Added sample init script (pks-rc.patch)
+- Beautified some of the web output (pks-beauty.patch)
+- Fixed a buffer overflow (from Teun Nijssen's source tree)
+- Client connection aborts are now handled properly on newer versions
+of Solaris (from Teun Nijssen's source tree - original change by
+Xander Jansen of SURFnet)
+- Added checkpointing after so many transactions. (patch3)
+- Added more logging to kvcv.c (patch3)
+- Added some messages regarding the non-support of X.509. (patch3)
+- Added max_last_reply_keys configuration option (patch3)
+- The spec file was radically updated for the upcoming pks-0.9.5rc1.
+  o The database is now stored in /var/lib/pks instead of /home/keyserver
+  o The PREFIX is now /usr instead of /usr/local
+  o For more details, see the %changelog that is within the spec file.
+
+***** Changes in version 0.9.4
+
+- Converted to Sleepycat Software Berkeley DB version 2.7.5.
+- mmap()d input files instead of reading them when possible.
+- The database may be split into multiple smaller files.
+- When a key does not parse, return a soft error to the user and
+continue processing the input keyblock.
+- When extending lists in the database, do so in chunks, rather than
+one entry at a time.  This improves performance when adding keys.
+- Allow the administrator to limit the maximum duration of the LAST
+mail server command.
+- Allow the administrator to limit the number of keys returned by
+index, verbose index, get, and last requests.
+- Use the log, lock, and transaction features of Berkeley DB.
+
+***** Changes in version 0.9.2
+
+- Added support for pgp 5's DSA and ElGamal keys.
+- Added support to short-circuit the normal output paths in
+pksclient, and instead output indexes and binary keys directly to
+stdout.  This saves a lot of virtual memory.
+- Removed many gmake-isms from the Makefile.
+- In the index pages from the web server, links in the User ID look
+up by KeyID instead of name, to eliminate ambiguity.
+- Fixed defunct process leak on some platforms, notably solaris.
+- Check for and, if necessary, use bsd4.2/ultrix 2-argument openlog.
+- The help files now must have a (possibly empty) MIME header block.
+This allows help files to use non-ascii character sets.
+- keyrings returned by the mail server have content-type
+application/pgp-keys, as per rfc2015.
+- fixed a double-memory-free.
+- pksd is more careful about shutting down cleanly when it receives a
+non-fatal signal (INT, QUIT, HUP, TERM).

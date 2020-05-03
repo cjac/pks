@@ -1,0 +1,94 @@
+# This file is a shell script that caches the results of configure
+# tests run on this system so they can be shared between configure
+# scripts and configure runs.  It is not useful on other systems.
+# If it contains results you don't want to keep, you may remove or edit it.
+#
+# By default, configure uses ./config.cache as the cache file,
+# creating it if it does not exist already.  You can give configure
+# the --cache-file=FILE option to use a different cache file; that is
+# what configure does when it calls configure scripts in
+# subdirectories, so they share the cache.
+# Giving --cache-file=/dev/null disables caching, for debugging configure.
+# config.status only pays attention to the cache file if you give it the
+# --recheck option to rerun configure.
+#
+ac_cv_c_bigendian=${ac_cv_c_bigendian='no'}
+ac_cv_c_const=${ac_cv_c_const='yes'}
+ac_cv_func_connect=${ac_cv_func_connect='yes'}
+ac_cv_func_getcwd=${ac_cv_func_getcwd='yes'}
+ac_cv_func_getopt=${ac_cv_func_getopt='yes'}
+ac_cv_func_getuid=${ac_cv_func_getuid='yes'}
+ac_cv_func_madvise=${ac_cv_func_madvise='yes'}
+ac_cv_func_memcmp=${ac_cv_func_memcmp='yes'}
+ac_cv_func_memcpy=${ac_cv_func_memcpy='yes'}
+ac_cv_func_memmove=${ac_cv_func_memmove='yes'}
+ac_cv_func_mmap=${ac_cv_func_mmap='yes'}
+ac_cv_func_munmap=${ac_cv_func_munmap='yes'}
+ac_cv_func_pread=${ac_cv_func_pread='yes'}
+ac_cv_func_pstat_getdynamic=${ac_cv_func_pstat_getdynamic='no'}
+ac_cv_func_qsort=${ac_cv_func_qsort='yes'}
+ac_cv_func_raise=${ac_cv_func_raise='yes'}
+ac_cv_func_select=${ac_cv_func_select='yes'}
+ac_cv_func_shmget=${ac_cv_func_shmget='yes'}
+ac_cv_func_snprintf=${ac_cv_func_snprintf='yes'}
+ac_cv_func_strerror=${ac_cv_func_strerror='yes'}
+ac_cv_func_strsep=${ac_cv_func_strsep='yes'}
+ac_cv_func_sysconf=${ac_cv_func_sysconf='yes'}
+ac_cv_func_vsnprintf=${ac_cv_func_vsnprintf='yes'}
+ac_cv_header_bstring_h=${ac_cv_header_bstring_h='no'}
+ac_cv_header_dirent_dirent_h=${ac_cv_header_dirent_dirent_h='yes'}
+ac_cv_header_stat_broken=${ac_cv_header_stat_broken='no'}
+ac_cv_header_stdc=${ac_cv_header_stdc='yes'}
+ac_cv_header_sys_select_h=${ac_cv_header_sys_select_h='yes'}
+ac_cv_header_sys_time_h=${ac_cv_header_sys_time_h='yes'}
+ac_cv_lib_dir_opendir=${ac_cv_lib_dir_opendir='no'}
+ac_cv_path_SENDMAIL=${ac_cv_path_SENDMAIL='/usr/sbin/sendmail'}
+ac_cv_path_db_cv_path_ar=${ac_cv_path_db_cv_path_ar='/usr/bin/ar'}
+ac_cv_path_db_cv_path_chmod=${ac_cv_path_db_cv_path_chmod='/usr/bin/chmod'}
+ac_cv_path_db_cv_path_cp=${ac_cv_path_db_cv_path_cp='/usr/bin/cp'}
+ac_cv_path_db_cv_path_mkdir=${ac_cv_path_db_cv_path_mkdir='/usr/bin/mkdir'}
+ac_cv_path_db_cv_path_ranlib=${ac_cv_path_db_cv_path_ranlib='/usr/bin/ranlib'}
+ac_cv_path_db_cv_path_rm=${ac_cv_path_db_cv_path_rm='/usr/bin/rm'}
+ac_cv_path_db_cv_path_sh=${ac_cv_path_db_cv_path_sh='/usr/bin/sh'}
+ac_cv_path_db_cv_path_strip=${ac_cv_path_db_cv_path_strip='/usr/bin/strip'}
+ac_cv_path_install=${ac_cv_path_install='/usr/bin/install -c'}
+ac_cv_prog_CC=${ac_cv_prog_CC='gcc'}
+ac_cv_prog_CPP=${ac_cv_prog_CPP='gcc -E'}
+ac_cv_prog_cc_cross=${ac_cv_prog_cc_cross='no'}
+ac_cv_prog_cc_g=${ac_cv_prog_cc_g='yes'}
+ac_cv_prog_cc_works=${ac_cv_prog_cc_works='yes'}
+ac_cv_prog_gcc=${ac_cv_prog_gcc='yes'}
+ac_cv_struct_st_blksize=${ac_cv_struct_st_blksize='yes'}
+ac_cv_type_mode_t=${ac_cv_type_mode_t='yes'}
+ac_cv_type_off_t=${ac_cv_type_off_t='yes'}
+ac_cv_type_pid_t=${ac_cv_type_pid_t='yes'}
+ac_cv_type_size_t=${ac_cv_type_size_t='yes'}
+ac_cv_type_ssize_t=${ac_cv_type_ssize_t='yes'}
+db_cv_bigfile=${db_cv_bigfile='yes'}
+db_cv_compat185=${db_cv_compat185='no'}
+db_cv_cxx=${db_cv_cxx='no'}
+db_cv_debug=${db_cv_debug='no'}
+db_cv_diagnostic=${db_cv_diagnostic='no'}
+db_cv_dump185=${db_cv_dump185='no'}
+db_cv_have_sigfillset=${db_cv_have_sigfillset='yes'}
+db_cv_int16=${db_cv_int16='yes'}
+db_cv_int32=${db_cv_int32='yes'}
+db_cv_path_ar=${db_cv_path_ar='/usr/bin/ar'}
+db_cv_path_chmod=${db_cv_path_chmod='/usr/bin/chmod'}
+db_cv_path_cp=${db_cv_path_cp='/usr/bin/cp'}
+db_cv_path_mkdir=${db_cv_path_mkdir='/usr/bin/mkdir'}
+db_cv_path_ranlib=${db_cv_path_ranlib='/usr/bin/ranlib'}
+db_cv_path_rm=${db_cv_path_rm='/usr/bin/rm'}
+db_cv_path_sh=${db_cv_path_sh='/usr/bin/sh'}
+db_cv_path_strip=${db_cv_path_strip='/usr/bin/strip'}
+db_cv_spinlocks=${db_cv_spinlocks='no'}
+db_cv_sprintf_count=${db_cv_sprintf_count='yes'}
+db_cv_test=${db_cv_test='no'}
+db_cv_uchar=${db_cv_uchar='yes'}
+db_cv_uint=${db_cv_uint='yes'}
+db_cv_uint16=${db_cv_uint16='yes'}
+db_cv_uint32=${db_cv_uint32='yes'}
+db_cv_uint8=${db_cv_uint8='yes'}
+db_cv_ulong=${db_cv_ulong='yes'}
+db_cv_ushort=${db_cv_ushort='yes'}
+pks_cv_socklen_t=${pks_cv_socklen_t='yes'}

@@ -1,0 +1,162 @@
+Content-Type: text/plain; charset=iso-2022-kr format=flowed
+Content-Transfer-Encoding: 8bit
+Content-Disposition: inline
+
+[
+  Czech:     Pro ziskani ceske verze tohoto textu poslete prosim e-mail se
+             "Subject" radkou "HELP CZ" na adresu
+             pgp-public-keys@keys.cz.pgp.net, nebo pristupte na URL
+             http://www.pgp.net/pgpnet/email-help-cz.html
+  Danish:    For at faa en dansk version af denne text skal du sende en
+             e-mail med en subject-tekst: "HELP DK" til
+             pgp-public-keys@keys.dk.pgp.net eller slaa op paa URL
+             http://www.pgp.net/pgpnet/email-help-dk.html
+  German:    Für eine deutschsprachige Fassung dieses Textes senden Sie
+             eine Mail mit dem Subject "HELP DE" an die folgende Adresse
+             pgp-public-keys@keys.de.pgp.net oder URL:
+             http://www.pgp.net/pgp/email-help-de.html
+  English:   For an English version of this message, send an e-mail with a
+             subject line of "HELP" to pgp-public-keys@keys.pgp.net, or
+             access the URL http://www.pgp.net/pgpnet/email-help-en.html
+  Spanish:   Para obtener una versión en castellano de este texto, envíe
+             un mail a pgp-public-keys@keys.nl.pgp.net con el "Subject"
+             HELP ES
+  Finnish:   Saadaksesi taman tekstin suomeksi, laheta osoitteeseen
+             pgp-public-keys@keys.nl.pgp.net tyhja viesti, jonka
+             Subject-kentta on "HELP FI".
+  French:    Pour une version française de çe texte, envoyez un
+             message au sujet de "HELP FR" à pgp-public-keys@keys.ch.pgp.net
+  Croatian:  Za hrvatsku verziju ovoga teksta posaljite poruku koja ce u
+             Subject imati "HELP HR" na adresu pgp-public-keys@keys.nl.pgp.net
+  Japanese:  Nihongo no setumei ga hosii baai wa Subject: ni "HELP JA"
+             to kaite, pgp-public-keys@keys.pgp.net ni e-mail.
+  Korean:    ¾Æ·¡ÀÇ ³»¿ëÀ» ÇÑ±Û·Î º¸½Ã·Á¸é Á¦¸ñ(Subject)ÀÌ "HELP KR" ÀÎ
+             ÀüÀÚ¿ìÆíÀ» pgp-public-keys@keys.kr.pgp.net À¸·Î º¸³»ÁÖ½Ê½Ã¿À.
+  Polish:    Zeby uzyskac polska wersje tej strony, wyslij list z linia
+             "HELP PL" w polu Subject na adres
+             pgp-public-keys@keys.pl.pgp.net lub zajrzyj pod URL
+             http://www.pgp.net/pgpnet/email-help-pl.html
+  Portuguese:Para obter uma versão em português deste texto, deve enviar um
+             mail para pgp-public-keys@keys.pt.pgp.net com o "Subject"
+             HELP PT
+  Norwegian: For aa faa dette dokumentet paa norsk, send "HELP NO" til
+             pgp-public-keys@keys.nl.pgp.net
+  Swedish:   For a Swedish version of this message, send an e-mail with a
+             subject line of "HELP SE" to pgp-public-keys@keys.se.pgp.net, or
+	     access the URL http://www.pgp.net/pgpnet/email-help-se.html
+  Chinese:   ¹ï¨ú±o¦¹¤@¤¤¤åª© PGP ¦øªA¾¹´£¨Ñ½u¤W»²§U»¡©ú, ½Ğ E-mail µ¹
+	     pgp-public-keys@keys.tw.pgp.net, ©ó Subject: µù©ú "HELP TW" §Y¥i.
+]
+
+OpenPGP °ø°³ ÀüÀÚ¿ìÆí Å°¼­¹ö
+------------------------------------------------------
+
+OpenPGP °ø°³ ÀüÀÚ¿ìÆí Å°¼­¹ö´Â ÀÎÅÍ³İ°ú UUCP ¿ìÆí½Ã½ºÅÛÀ» ÀÌ¿ëÇÏ¿© ¼­·ÎÀÇ
+°ø°³Å°(public keys)¸¦ ±³È¯ÇØ ÁÖ°í ÀÖ½À´Ï´Ù.
+
+WWW ¸¦ ÀÌ¿ëÇÒ ¼ö ÀÖÀ¸¸é "http://www.pgp.net/pgp/www-key.html" ¿¡ Á¢¼Ó
+ÇØ¼­ º¸´Ù Æí¸®ÇÑ WWW È¯°æÀ» »ç¿ëÇÒ ¼ö ÀÖÀ¸¸ç  ÀÚÁÖ °ø°³Å°¸¦ °Ë»öÇÒ ÇÊ
+¿ä°¡ ÀÖ´Â ºĞµéÀº  FTP ¼­¹ö "ftp://ftp.pgp.net/pub/pgp/" ¿¡¼­  ¸ğµç °ø°³Å°°¡
+µé¾îÀÖ´Â ÀüÃ¼ Å°¸µ(keyring) ÆÄÀÏÀ» ¹Ş¾Æ °¡½Ç ¼ö ÀÖ½À´Ï´Ù.
+
+ÀÌ ¼­ºñ½º´Â PGP »ç¿ëÀÚµéÀÌ °ø°³Å°¸¦ ±³È¯ÇÏ´Âµ¥ µµ¿òÀ» ÁÙ »Ó  »ç¿ëÀÚµé
+ÀÌ µî·ÏÇÑ °ø°³Å°ÀÇ µî·ÏÀÚ¿¡ ´ëÇÑ ÁøÀ§¿©ºÎ´Â Ã¥ÀÓÁöÁö ¾Ê½À´Ï´Ù. ±×·¯ÇÑ
+Á¾·ùÀÇ º¸¾ÈÀ» ¿øÇÑ´Ù¸é ¼­¸íÀ» ºÙÀÎ Å°¸¦ »ç¿ëÇÏ½Ê½Ã¿À.
+
+¸ğµç Å°¼­¹ö´Â ´ÙÀ½°ú °°Àº Çü½ÄÀÇ ÀüÀÚ¿ìÆíÀ» Ã³¸®ÇÕ´Ï´Ù.
+Å°¼­¹ö°¡ Ã³¸®ÇÒ ¸í·ÉÀº Ç×»ó Á¦¸ñ(Subject): ÁÙ¿¡ µé¾î°¡¾ß ÇÏ¹Ç·Î
+--------------------------- ============== --------------------
+ÀüÀÚ¿ìÆíÀÇ º» ³»¿ë(body) ºÎºĞ¿¡ µé¾î°¡Áö ¾Êµµ·Ï ÁÖÀÇÇØ ÁÖ½Ê½Ã¿À.
+---------------------------------------- ====== ---------------
+
+        To: pgp-public-keys@keys.kr.pgp.net
+        From: kdhong@some.site.edu
+        Subject: help
+
+¿©·¯ºĞÀÇ °ø°³Å°´Â ÇÏ³ªÀÇ Å°¼­¹ö¿¡¸¸ µî·ÏÇÏ¸é ´Ù¸¥ Å°¼­¹ö¿¡µµ ÀÚµ¿À¸·Î
+µî·ÏµË´Ï´Ù.
+
+¿¹¸¦ µé¾î ¿©·¯ºĞÀÌ ÀÚ½ÅÀÇ °ø°³Å°¸¦ Å°¼­¹ö¿¡ µî·ÏÇÏ°Å³ª ÀÌ¹Ì µî·ÏµÈ °ø
+°³Å°¸¦ ¹Ù²Ù°íÀÚ ÇÑ´Ù¸é ¾Æ·¡¿Í °°Àº Çü½ÄÀÇ ÀüÀÚ¿ìÆíÀ»  ¾Æ¹« Å°¼­¹ö¿¡³ª
+º¸³»½Ê½Ã¿À.
+
+        To: pgp-public-keys@keys.kr.pgp.net
+        From: kdhong@some.site.edu
+        Subject: add
+
+        -----BEGIN PGP PUBLIC KEY BLOCK-----
+        Version: 2.6.3i
+
+        <µî·ÏÇÒ °ø°³Å°°¡ ¿©±â µé¾î°©´Ï´Ù>
+        -----END PGP PUBLIC KEY BLOCK-----
+
+
+Æó±âµÈ Å°µé:  ¸ÕÀú Key Revocation Certificate ¸¦ ¸¸µé°í (¸¸µå´Â ¹æ¹ıÀº
+   PGP ¼³¸í¼­¿¡ ³ª¿Í ÀÖ½¿) Å°¼­¹ö¿¡ ADD ¸í·ÉÀ¸·Î Å°¸¦ º¸³»½Ê½Ã¿À.
+
+Å°¼­¹ö°¡ Ã³¸®ÇÒ ¼ö ÀÖ´Â ¸í·Éµé:
+
+¸í·É                   ¼³¸í
+---------------------- ------------------------------------------------------
+ADD                    °ø°³Å°¸¦ µî·Ï (µî·ÏÇÒ °ø°³Å°´Â ÀüÀÚ¿ìÆíÀÇ º»³»¿ë(body)
+                          ºÎºĞ¿¡ µé¾î°¡¾ß ÇÔ)
+INDEX                  µî·ÏµÈ PGP °ø°³Å°µéÀÇ ¸ñ·ÏÀ» º¸¿© ÁÜ (-kv)
+INDEX userid           µî·ÏµÈ PGP °ø°³Å°µé Áß 'userid' °¡ µé¾î ÀÖ´Â Å°µéÀÇ
+                          ¸ñ·ÏÀ» º¸¿© ÁÜ (-kv)
+VERBOSE INDEX          µî·ÏµÈ PGP °ø°³Å°µéÀÇ ¸ñ·ÏÀ» verbose Çü½ÄÀ¸·Î  º¸¿© ÁÜ
+                          (-kvv)
+VERBOSE INDEX userid   µî·ÏµÈ PGP °ø°³Å°µé Áß 'userid' °¡ µé¾î ÀÖ´Â Å°µéÀÇ
+                          ¸ñ·ÏÀ» verbose Çü½ÄÀ¸·Î º¸¿© ÁÜ (-kvv)
+GET                    (ÁÖÀÇ!) µî·ÏµÈ PGP °ø°³Å°¸¦ ¸ğµÎ º¸¿© ÁÜ (split)
+GET userid             'userid' ÀÇ PGP °ø°³Å°¸¦ º¸¿© ÁÜ
+MGET regexp            '/regexp/' ¿¡ ¸Â´Â PGP °ø°³Å°¸¦ ¸ğµÎ º¸¿© ÁÜ (ÀÌ¶§
+                          'regexp'´Â Àû¾îµµ 2 ±ÛÀÚ(charater) ÀÌ»óÀÌ¾î¾ß ÇÔ)
+LAST days              ÃÖ±Ù 'days' ÀÏ µ¿¾È º¯°æµÈ PGP °ø°³Å°¸¦ ¸ğµÎ º¸¿© ÁÜ
+-----------------------------------------------------------------------------
+
+MGET ¸í·ÉÀ» »ç¿ëÇÑ ¿¹:
+
+        MGET kdhong             ÀÌ¸§¿¡ "kdhong"ÀÌ Æ÷ÇÔµÈ ¸ğµç Å°¸¦ º¸¿© ÁÜ
+        MGET seoul              ÀÌ¸§¿¡ "seoul"ÀÌ Æ÷ÇÔµÈ ¸ğµç Å°¸¦ º¸¿© ÁÜ
+        MGET E8F605A5|5F3E38F5  ÁÖ¾îÁø µÎ°³ÀÇ Å°¹øÈ£(keyid)¿Í ÀÏÄ¡ÇÏ´Â ¸ğµç
+                                   Å°¸¦ º¸¿© ÁÜ
+
+'regexps'¿¡ °üÇÏ¿©:  '*'´Â Unix ½©(shell)ÀÌ³ª MSDOS ¿¡¼­ »ç¿ëÇÏ´ø °Í°ú ´Ş¸®
+   "¹Ù·Î ÀüÀÇ ±ÛÀÚ(character)¿Í ÀÏÄ¡ÇÏ´Â ¿©·¯°³ÀÇ ±ÛÀÚµé ¶Ç´Â °ø¹é" À» ÀÇ¹Ì
+   ÇÕ´Ï´Ù.
+
+	a.*  ´Â a ·Î ½ÃÀÛÇÏ´Â ¸ğµç ´Ü¾î¸¦ ÀÇ¹ÌÇÕ´Ï´Ù
+	ab*c ´Â ac, abc, abbc µîÀÇ ´Ü¾î¸¦ ÀÇ¹ÌÇÕ´Ï´Ù.
+
+   (ÁÖÀÇ!) "MGET .*" ¸í·ÉÀ» »ç¿ëÇÏ´Â ´ë½Å "GET" ¸í·ÉÀ» »ç¿ëÇÏ½Ê½Ã¿À.
+
+"GET" ¸í·É¿¡ °üÇÏ¿©:  °¡´ÉÇÑ ÇÑ "GET" ¸í·ÉÀ» »ç¿ëÇÏ´Â ´ë½Å FTP ¼­¹ö
+   "ftp://ftp.pgp.net/pub/pgp/keys"¸¦ ÅëÇØ ÀüÃ¼ Å°¸µ(keyring) ÆÄÀÏÀ» °¡Á® °¡½Ê½Ã¿À. 
+   ÇöÀç Å°¸µ ÆÄÀÏÀº °¢°¢ÀÌ 52K ÀÎ ÆÄÀÏ·Î 50°³°¡ ³ÑÀ¸¹Ç·Î "GET" ¸í·ÉÀÇ »ç¿ë
+   Àº ¸¹Àº ºÎ´ãÀ» ÁÖ°Ô µË´Ï´Ù.
+
+ÀüÀÚ¿ìÆí Å°¼­¹ö »ç¿ëÀÚµéÀº ÀüÀÚ¿ìÆíÀ» º¸³¾ ¶§ "pgp-public-keys@keys.pgp.net"
+ÁÖ¼Ò¸¦ ÀÌ¿ëÇÏ°Å³ª ¾Æ·¡ÀÇ ÁÖ¼ÒÁß »ç¿ëÀÚÀÇ ±¹°¡¿¡ ÀÖ´Â ÀüÀÚ¿ìÆí Å°¼­¹ö ÁÖ¼Ò¸¦
+ÀÌ¿ëÇÏ½Ê½Ã¿À:
+
+	pgp-public-keys@keys.at.pgp.net
+	pgp-public-keys@keys.au.pgp.net
+	pgp-public-keys@keys.cz.pgp.net
+	pgp-public-keys@keys.de.pgp.net
+	pgp-public-keys@keys.es.pgp.net
+	pgp-public-keys@keys.fi.pgp.net
+	pgp-public-keys@keys.hr.pgp.net
+	pgp-public-keys@keys.hu.pgp.net
+	pgp-public-keys@keys.kr.pgp.net
+	pgp-public-keys@keys.nl.pgp.net
+	pgp-public-keys@keys.no.pgp.net
+	pgp-public-keys@keys.pl.pgp.net
+	pgp-public-keys@keys.se.pgp.net
+	pgp-public-keys@keys.tw.pgp.net
+	pgp-public-keys@keys.uk.pgp.net
+	pgp-public-keys@keys.us.pgp.net
+
+FTP ¼­ºñ½º¸¦ ¿øÇÏ½Ã¸é "ftp://ftp.pgp.net/pub/pgp/" À¸·Î Á¢¼ÓÇØ ÁÖ½Ê½Ã¿À.
+
+À§¿¡ ³ª¿­µÈ "*.pgp.net" ÁÖ¼ÒµéÀº ¾ÈÁ¤µÇ°í È®½ÇÇÏ¹Ç·Î ÀÌ ÁÖ¼ÒµéÀ» »ç¿ëÇÏ½Ã±â
+¹Ù¶ø´Ï´Ù.

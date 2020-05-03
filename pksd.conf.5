@@ -1,0 +1,115 @@
+.\"
+.\" $Id: pksd.conf.5,v 1.3 2002/11/25 19:48:45 rlaager Exp $
+.\"
+.\" Copyright (c) 1996, 1997, 1998, 1999, Marc Horowitz.  All rights reserved.
+.\" See the LICENSE file in the release for redistribution information.
+.\"
+.TH PKSD.CONF 5 "24 January 1996"
+.SH NAME
+pksd.conf \- Public Key Server Daemon configuration file
+.SH DESCRIPTION
+The pksd.conf file contains all the configuration information for the
+programs which comprise the public key server system
+(\fBpks-intro(8)\fR).  It contains a list of configuration variables
+of the form
+.IP
+.I word value
+.PP
+If the first character of a line is
+.IR # ,
+the line is a comment, and ignored.  The variables are as follows:
+.TP
+.B pks_bin_dir
+This defines the location of the executeables which form the public
+key server system.  In particular,
+.B pksdctl(8)
+must be in this directory.
+.TP
+.B db_dir
+This is the directory where the database files
+.BR keydbXXX ,
+.BR worddb ,
+and
+.B timedb ,
+and the key database file counter
+.B num_keydb
+are stored.
+.TP
+.B www_port
+This is the port number on which
+.B pksd(8)
+accepts HTTP connections.  If it is 
+.BR 0 ,
+then HTTP connections are not accepted on any port.
+.TP
+.B www_readonly
+This controls key updates/submissions via HTTP.  If it is
+.BR 0 ,
+then keys may be submitted via HTTP.  The DEFAULT is
+.BR 1,
+which DOES NOT allow key updates/submissions via HTTP.
+.TP
+.B max_reply_keys
+This controls how many keys are returned at the most for keyserver
+queries. You'll want to set this. The default is 0, so the keyserver
+will not return any keys.
+.TP
+.B socket_name
+This is the name of the unix domain socket on which
+.B pksd(8)
+will listen for control messages from 
+.BR pksdctl(8) ,
+including notification of new mail messages.
+.TP
+.B mail_delivery_client
+This is a command which will be executed whenever mail needs to be
+delivered.  This value is used as the command argument to the shell
+(/bin/sh -c
+.IR value ),
+so appropriate care should be taken to avoid security problems.  The
+mail message to be delivered is passed to the standard input of this
+command, so options to the program should be used to parse the input
+for delivery addresses.
+.TP
+.B maintainer_email
+This address is used as the From: address for all mail sent out.
+.TP
+.B mail_intro_file
+This is the filename of a file which, if present, is inserted at the
+head of each mail message sent out by
+.BR pksd(8) .
+This file is used as a part of a MIME message.  If MIME headers, such
+as content-type:, are required, they precede the body, separated by a
+blank line.  If no headers are required, then the first line of the
+file must be blank.
+.TP
+.B help_dir
+This is the name of a directory in which the key server help files
+should be found.  The files in this directory should be named
+.BR pks_help.LANG ,
+where LANG is the language of the help file, in lower-case.  These
+files are also used as MIME parts, so they are subject to the same
+formatting requirements as the
+.B mail_intro_file .
+.TP
+.B default_language
+This is a string containing the default language for help responses
+from the server.  The help file for this language, as described above,
+should exist.
+.TP
+.B this_site
+This is the email address for this public key server.  See the
+description of incremental messages in
+.B pksd(8)
+for more details.
+.TP
+.B syncsite
+This command gives the email address of a peer public key server to
+this one.  This is the only command which can be specified more than
+once.  It should be specified once for each peer server.
+.SH FILES
+pksd.conf
+.SH SEE ALSO
+pks-intro(8), pksd(8)
+.SH AUTHOR
+Marc Horowitz, Massachusetts Institute of Technology

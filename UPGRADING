@@ -1,0 +1,21 @@
+$Id: UPGRADING,v 1.1 2003/02/02 17:31:55 dmshaw Exp $
+
+****! IMPORTANT !****
+
+Several bugs were fixed in the 0.9.6 release, and so the database
+format used in the keyserver is slightly different than in earlier
+versions.
+
+If you are upgrading from version 0.9.5 or earlier, you have two
+choices:
+
+1) Rebuild your database (i.e. dump the database using the old
+   keyserver and then reload it using the new keyserver).
+
+2) Keep your old database.  There is some wasted space as certain keys
+   that were not indexed properly using the old keyserver will end up
+   duplicated.
+
+   To do this, you must build with ./configure --enable-old-database
+
+*********************

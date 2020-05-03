@@ -1,0 +1,151 @@
+From dshaw@jabberwocky.com  Tue Oct  8 18:22:44 2002
+From: dshaw@jabberwocky.com (David Shaw)
+Date: Tue, 8 Oct 2002 13:22:44 -0400
+Subject: [Pgp-keyserver-folk] Re: Machine-readable indexes
+In-Reply-To: <20021008164707.GS12763@dtype.org>
+References: <20021008154852.GD8252@akamai.com>
+	<20021008164707.GS12763@dtype.org>
+Message-ID: <20021008172244.GA1994@akamai.com>
+
+On Tue, Oct 08, 2002 at 04:47:07PM +0000, M. Drew Streib wrote:
+> On Tue, Oct 08, 2002 at 11:48:52AM -0400, David Shaw wrote:
+> > I just committed the machine-readable index code for pksd.  This
+> > allows programs (rather than people) easy parsing of the results.
+> 
+> Could you post a quick document explaining the format? This would allow
+> the other pks programs to support this format as well. And for completeness,
+> you might also want to name it, and give it a version string somewhere
+> in the format, so it will be easy to update it and maintain compatibility.
+
+Oops - I meant to post that.  I hadn't really given it a name, as I
+thought of it as part of HKP.  It's one of the things from the draft
+keyserver RFC.  MRHKP?
+
+Machine Readable Keyserver Listings
+===================================
+
+David Shaw <dshaw@jabberwocky.com>
+
+This is a machine readable key listing format for HKP keyservers such
+as pksd.  This is only intended for machine parsing, and does not
+affect the regular "index" and "vindex" listings which can continue as
+they are now.  In fact, once this machine readable format is in place,
+"index" and "vindex" can be changed at will without breaking programs
+(i.e. GnuPG) that search the keyservers.
+
+The command to the keyserver to request the machine readable format is
+"options=mr".  This is passed along with the usual arguments to pksd.
+For example:
+
+  http://pgp.mit.edu:11371/pks/lookup?search=dshaw%40jabberwocky.com&op=index&options=mr
+
+Note that the current pks ignores extra arguments - this gives us a
+nice backwards compatible system where programs that want machine
+readable output should always request "options=mr".  Keyservers that
+support the machine readable format will respond properly, and
+keyservers that do not will respond with the old index page.  The
+calling program can then either give up or try to parse the index
+page.
+
+Note that there may be other options in the future, so it is possible
+to receive an options line separated by commas
+("options=mr,foo,bar,baz").
+
+The machine readable response begins with an optional information
+line:
+
+info:<version>:<count>
+
+<version> = this is the version of this protocol.  Currently, this is
+	    the number 1.
+
+<count> = the number of keys returned in this response.  Note this is
+	  the number of keys, and not the number of lines returned.
+	  It should match the number of "pub:" lines returned.
+
+If this optional line is not included, or the version information is
+not supplied, the version number is assumed to be 1.
+
+The key listings are made up of several lines per key.  The first line
+is for the primary key:
+
+pub:<fingerprint>:<algo>:<keylen>:<creationdate>:<expirationdate>:<flags>
+
+<fingerprint> = this is either the fingerprint or the keyid of the
+                key.  Either the 16-digit or 8-digit keyids are
+                acceptable, but obviously the fingerprint is best.
+                Since it is not possible to calculate the keyid from a
+                V3 key fingerprint, for V3 keys this should be either
+                the 16-digit or 8-digit keyid only.
+
+<algo> = the algorithm number from RFC-2440.  (i.e. 1==RSA, 17==DSA,
+         etc).
+
+<keylen> = the key length (i.e. 1024, 2048, 4096, etc.)
+
+<creationdate> = creation date of the key in standard RFC-2440 form
+	         (i.e. number of seconds since 1/1/1970 UTC time)
+
+<expirationdate> = expiration date of the key in standard RFC-2440
+	         form (i.e. number of seconds since 1/1/1970 UTC time)
+
+<flags> = letter codes to indicate details of the key, if any.  Flags
+	  may be in any order.
+
+	  r == revoked
+	  d == disabled
+	  e == expired
+
+Following the "pub" line are one or more "uid" lines to indicate user
+IDs on the key:
+
+uid:<escaped uid string>:<creationdate>:<expirationdate>:<flags>
+
+<escaped uid string> == the user ID string, with HTTP %-escaping for
+			anything that isn't 7-bit safe as well as for
+			the ":" character.  Any other characters may
+			be escaped, as desired.
+
+creationdate, expirationdate, and flags mean the same here as before.
+The information is taken from the self-sig, if any, and applies to the
+user ID in question, and not to the key as a whole.
+
+Details:
+
+* All characters except for the <escaped uid string> are
+  case-insensitive.
+
+* Obviously, on a keyserver without integrated crypto, many of the
+  items given here are not fully trustworthy until the key is
+  downloaded and signatures checked.  For example, the information
+  that a key is flagged "r" for revoked should be treated as
+  untrustworthy information until the key is checked on the client
+  side.
+
+* Empty fields are allowed.  For example, a key with no expiration
+  date would have the <expirationdate> field empty.  Also, a keyserver
+  that does not track a particular piece of information may leave that
+  field empty as well.  I expect that the creation and expiration
+  dates for user IDs will be left empty in current keyservers.  Colons
+  for empty fields on the end of each line may be left off, if
+  desired.
+
+Future growth:
+
+* There is room for future growth with other "options".
+
+* Any new items (such as "most recent modification date") that are not
+  considered here can be easily added on to the end of each line.
+
+* I am only considering the basic primary key and user ID information
+  here.  In the future, it would be easy to add subkey and user
+  attribute (aka "photo id") records as well.  However, this is not
+  necessary for a first implementation.
+
+David
+
+-- 
+   David Shaw  |  dshaw@jabberwocky.com  |  WWW http://www.jabberwocky.com/
++---------------------------------------------------------------------------+
+   "There are two major products that come out of Berkeley: LSD and UNIX.
+      We don't believe this to be a coincidence." - Jeremy S. Anderson

@@ -1,0 +1,69 @@
+#	@(#)script	8.32 (Berkeley) 1/19/98
+#
+# Setup
+# setenv VERSION 2.1.0
+setenv VERSION tk
+setenv S /usr/src/db
+
+# Make sure everything's checked in.
+cd $S && allout
+
+# Diff with the last version.
+#cd $S/.. && ~bostic/src/diff/diff -r
+
+# Increment the version numbers and dates.
+setenv X README
+cd $S && sco $X && vi $X && echo "go to $VERSION" | sccs delget $X
+setenv X db.h.src
+cd $S/include && sco $X && vi $X && echo "go to $VERSION" | sccs delget $X
+
+# Build the documents.
+cd $S/man/man.source && make clean
+cd $S/man/man.source && make && make check
+cd $S/man/man.source && make && make install_web
+
+# Configure the distribution.
+cd $S/dist && sh ./distrib
+
+# Build a version.
+cd $S && rm -rf build.local && mkdir build.local
+cd $S && cd build.local && ~bostic/bin/dbconf && make >& mklog
+make ex_{access,appinit,btrec,lock,mpool,thread,tpcb} thread >>& mklog
+make {err,getcwd,getlong,getopt,memcmp,memcpy,memmove,raise}.o >>& mklog
+make {snprintf,strdup,strerror,strsep,vsnprintf}.o >>& mklog
+vi mklog
+
+# Check the install
+make prefix=`pwd`/INSTALL install
+
+# Run the checks.
+sh ../../db.ARCHIVE/chk.def
+sh ../../db.ARCHIVE/chk.jump
+
+# Save the SCCS Ids.
+what *.o | egrep Sleepycat | gzip > ../../db.ARCHIVE/history/$VERSION.gz
+chmod 444 ../../db.ARCHIVE/history/$VERSION.gz
+
+# Clean up the tree.
+cd $S
+mv -i TODO build.local build.margo SCCS/
+mv -i man/man.{error,source} SCCS/
+find . \! -path '*SCCS*' -type d \! -perm 775
+find . \! -path '*SCCS*' -type f \! -perm 444
+find . \! -path '*SCCS*' \( -name '*.rej' -o -name '*.orig' \)
+chown -R bin.wsrc .
+
+# Create the release.
+setenv T "/var/spool/ftp/pub/db-$VERSION.tar.gz"
+setenv T "/var/spool/ftp/hidden/db-$VERSION.tar.gz"
+cd $S/.. && mv -i db db-$VERSION
+tar cFFf - db-$VERSION | gzip --best > $T
+chmod 444 $T && mv -i db-$VERSION db
+
+# Restore the tree.
+cd $S/SCCS
+mv -i TODO build.local build.margo ../
+mv -i man.{error,source} ../man/
+
+# Save a copy of the release.
+cd $S && cp -p $T ../db.ARCHIVE/history/
